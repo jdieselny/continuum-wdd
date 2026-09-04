@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "continuum-wdd"
+version = "0.1.0"
+description = "Workorder Driven Development (WDD) Engine"
+authors = [
+    {name = "J Diesel NY", email = "jkintzele@jdieselny.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.scripts]
+wdd = "wdd.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["lib"]
+include = ["wdd*"]

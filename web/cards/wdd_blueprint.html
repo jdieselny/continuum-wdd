@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A:iB MMC - OB Writer</title>
+  <link rel="stylesheet" href="brand.css" />
+  <link rel="stylesheet" href="mmc.css" />
+  <!-- React & Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <style>
+    .wizard-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .wizard-step {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .wizard-step.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    textarea.vomit-box {
+      width: 100%;
+      height: 300px;
+      background: var(--gray-800);
+      color: var(--gray-100);
+      border: 1px solid var(--gray-700);
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 14px;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    textarea.vomit-box:focus {
+      outline: none;
+      border-color: var(--brand-accent);
+    }
+    .scaffold-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .scaffold-card {
+      background: var(--gray-900);
+      border: 1px solid var(--gray-700);
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    .scaffold-card h3 {
+      margin-top: 0;
+      color: var(--brand-accent);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .task-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .task-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gray-800);
+      font-size: 13px;
+    }
+    .task-list li:last-child {
+      border-bottom: none;
+    }
+    .btn {
+      background: var(--brand-accent);
+      color: var(--gray-900);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 2rem;
+      display: inline-block;
+    }
+    .btn:hover {
+      background: #fff;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--brand-accent);
+      border: 1px solid var(--brand-accent);
+    }
+    .btn-secondary:hover {
+      background: var(--gray-800);
+      color: #fff;
+    }
+    .wo-envelope {
+      background: var(--gray-900);
+      border-left: 4px solid var(--brand-accent);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0 4px 4px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wo-details h4 {
+      margin: 0 0 0.5rem 0;
+      color: #fff;
+    }
+    .wo-details p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--gray-400);
+    }
+    .token-meter {
+      text-align: right;
+    }
+    .token-meter .count {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--brand-accent);
+    }
+    .token-meter .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--gray-500);
+    }
+    .wo-00 {
+      border-left-color: #ff4757;
+    }
+    .wo-00 .count {
+      color: #ff4757;
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--gray-800);
+    }
+    .step-dot {
+      color: var(--gray-600);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+    .step-dot.active {
+      color: var(--brand-accent);
+    }
+  </style>
+</head>
+<body class="brand-type">
+  <header class="app">
+    <a class="brand-lockup" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <span class="brand-wordmark">A:iB</span>
+        <span class="brand-subline">OB Writer</span>
+      </span>
+    </a>
+    <nav>
+      <a href="index.html">Launcher</a>
+      <a href="wdd_telemetry.html">WDD Telemetry</a>
+      <a href="wdd_blueprint.html" aria-current="page">OB Writer</a>
+    </nav>
+  </header>
+  
+  <main>
+    <div id="root"></div>
+  </main>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const OBWriter = () => {
+      const [step, setStep] = useState(1);
+      const [prompt, setPrompt] = useState("");
+      const [isProcessing, setIsProcessing] = useState(false);
+
+      // Mock Data for UI
+      const mockScaffold = {
+        "Frontend / Glass": ["Create WDD OB Writer React Card", "Implement 3-pass wizard UI"],
+        "Backend / Logic": ["Implement BlueprintEngine python class", "Wire fan-out generation"],
+        "Plumbing / Infrastructure": ["Update workorder schema references", "Register route in aib-server"],
+        "Documentation": ["Write OB_WRITER_SPEC.md"],
+        "Marketing & Branding": ["Ensure brand.css compliance"]
+      };
+
+      const mockWorkorders = [
+        { id: "wo-000-peer-review", title: "Peer Review: Draft OB Audit", agent: "Opus", desc: "Audit the drafted Original Blueprint for missing dependencies and integrity.", tokens: 12500, isWo00: true },
+        { id: "wo-001-frontend", title: "Frontend / Glass Implementation", agent: "Agy", desc: "Execute React/Babel UI construction.", tokens: 17000 },
+        { id: "wo-002-backend", title: "Backend / Logic Implementation", agent: "Codex", desc: "Implement BlueprintEngine python class.", tokens: 8500 },
+        { id: "wo-003-docs", title: "Documentation Execution", agent: "Grok", desc: "Write OB_WRITER_SPEC.md", tokens: 4200 }
+      ];
+
+      const handlePass1Submit = () => {
+        setIsProcessing(true);
+        setTimeout(() => {
+          setIsProcessing(false);
+          setStep(2);
+        }, 800);
+      };
+
+      const handlePass2Submit = () => {
+        setIsProcessing(true);
+        setTimeout(() => {
+          setIsProcessing(false);
+          setStep(3);
+        }, 800);
+      };
+
+      const handleDeploy = () => {
+        alert("Original Blueprint Approved. Workorders dispatched to the fleet mailbox.");
+        setStep(1);
+        setPrompt("");
+      };
+
+      return (
+        <div className="wizard-container">
+          <div className="step-indicator">
+            <div className={`step-dot ${step >= 1 ? 'active' : ''}`}>1. The Vomit</div>
+            <div className={`step-dot ${step >= 2 ? 'active' : ''}`}>2. The Scaffold</div>
+            <div className={`step-dot ${step >= 3 ? 'active' : ''}`}>3. The Fan-Out</div>
+          </div>
+
+          {/* Step 1: Vomit Prompt */}
+          <div className={`wizard-step ${step === 1 ? 'active' : ''}`}>
+            <h2>Explain the Objective</h2>
+            <p className="sub">Drop your unstructured thought process below. Do not worry about formatting. The engine will normalize it.</p>
+            <textarea 
+              className="vomit-box" 
+              placeholder="e.g. I need a GUI for the OB writer that takes a loose prompt and forces it into 5 workorders..."
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+            ></textarea>
+            <button className="btn" onClick={handlePass1Submit} disabled={isProcessing || !prompt}>
+              {isProcessing ? "Synthesizing..." : "Normalize to Scaffold"}
+            </button>
+          </div>
+
+          {/* Step 2: Scaffolding */}
+          <div className={`wizard-step ${step === 2 ? 'active' : ''}`}>
+            <h2>High-Level Objectives</h2>
+            <p className="sub">The engine has mapped your raw intent into the A:iB structural scaffold.</p>
+            
+            <div className="scaffold-grid">
+              {Object.entries(mockScaffold).map(([category, tasks]) => (
+                <div key={category} className="scaffold-card">
+                  <h3>{category}</h3>
+                  <ul className="task-list">
+                    {tasks.map((t, i) => <li key={i}>{t}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              <button className="btn btn-secondary" onClick={() => setStep(1)}>Back</button>
+              <button className="btn" onClick={handlePass2Submit} disabled={isProcessing}>
+                {isProcessing ? "Extrapolating..." : "Fan-out to Hole Map"}
+              </button>
+            </div>
+          </div>
+
+          {/* Step 3: Fan-Out & Projection */}
+          <div className={`wizard-step ${step === 3 ? 'active' : ''}`}>
+            <h2>Fan-Out Preview</h2>
+            <p className="sub">The Original Blueprint has been drafted. Review the execution envelopes and token burn projections before committing to the relay.</p>
+            
+            <div className="workorders-list">
+              {mockWorkorders.map(wo => (
+                <div key={wo.id} className={`wo-envelope ${wo.isWo00 ? 'wo-00' : ''}`}>
+                  <div className="wo-details">
+                    <h4>{wo.id}: {wo.title}</h4>
+                    <p><strong>Assigned:</strong> {wo.agent} | {wo.desc}</p>
+                  </div>
+                  <div className="token-meter">
+                    <div className="count">{wo.tokens.toLocaleString()}</div>
+                    <div className="label">Tokens</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+              <button className="btn btn-secondary" onClick={() => setStep(2)}>Back to Scaffold</button>
+              <button className="btn" onClick={handleDeploy}>Lock & Deploy Fleet</button>
+            </div>
+          </div>
+
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<OBWriter />);
+  </script>
+</body>
+</html>

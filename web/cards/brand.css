@@ -1,0 +1,295 @@
+/* ==========================================================================
+   brand.css — Continuum / A:iB core brand profile
+   WO-20260903-056 · grid I-10 · [A:iB | BRAND] · body: Opus
+   Status: OPEN — the operator has not admitted this file.
+           See docs/BRAND_GUIDELINES.md for the holes it does not close.
+
+   TOKENS ONLY, plus a thin typographic base. This file owns the palette, the
+   type stacks, the scale and the marks. It does NOT own layout — mmc.css keeps
+   that and is rewritten against these variables under WO-057.
+
+   Law: no consuming stylesheet hardcodes a hex. If a value you need is not a
+   token here, add the token here first.
+
+   Sources (do not re-derive from memory):
+     god-terminal/backend/graph_mailer.py  — canonical mail typography + hexes
+     continuum/rituals/aib_brand.md        — operator-locked marks, 2026-08-24
+     docs/assets/*.svg                     — the marks themselves
+     web/cards/mmc.css                     — the status hues already in the glass
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------- ramps
+     Obsidian: the A:iB ground. #0A0B0F is operator-locked (aib_brand.md §6).
+     The rest of the ramp is read off the aib_logo.svg steel gradient. */
+  --aib-obsidian-900: #08090D;  /* deepest canvas (aib_logo.svg backplate)   */
+  --aib-obsidian-850: #0A0B0F;  /* LOCKED — A:iB company black               */
+  --aib-obsidian-800: #12151C;  /* raised surface                            */
+  --aib-obsidian-700: #1E222D;  /* panel                                     */
+  --aib-obsidian-600: #2A3040;  /* divider on dark                           */
+  --aib-obsidian-500: #3A4050;  /* border on dark                            */
+
+  /* Titanium: the A:iB figure and its type. #E2E6ED is operator-locked. */
+  --aib-titanium-050: #FFFFFF;
+  --aib-titanium-100: #E2E6ED;  /* LOCKED — A:iB titanium                    */
+  --aib-titanium-300: #9BA3B4;  /* muted text on dark — 7.8:1, passes AA     */
+  --aib-titanium-500: #646D82;  /* 3.8:1 — NON-TEXT. Borders and icons only. */
+  --aib-titanium-700: #3A4050;
+
+  /* Paper: the light/mail register. #1e2030, #6b7089 and #e2e4ea are the
+     hexes already shipping in graph_mailer.py, kept byte-identical. */
+  --aib-paper-000: #FFFFFF;
+  --aib-paper-050: #F6F7FA;
+  --aib-paper-200: #E2E4EA;     /* mail hairline                             */
+  --aib-paper-ink: #1E2030;     /* mail body text                            */
+  --aib-paper-muted: #6B7089;   /* mail meta text                            */
+
+  /* -------------------------------------------------------------- signal
+     Two tints per hue. *-bright reads on obsidian, *-deep reads on paper.
+     Never use a -bright tint as text on a light surface (2.3–3.6:1). */
+  --aib-info-bright:  #5B8DEF;  --aib-info-deep:  #2F5FD0;
+  --aib-ok-bright:    #3DBA74;  --aib-ok-deep:    #1F7A4C;
+  --aib-warn-bright:  #E0A84C;  --aib-warn-deep:  #8A5A00;
+  --aib-bad-bright:   #E25B5B;  --aib-bad-deep:   #B03030;
+
+  /* J Diesel NY green. aib_brand.md §6 admits it as a *Nomadic trail* accent
+     only. Not an A:iB company colour. Not a status colour. Not body text. */
+  --jd-green: #5CB85C;
+
+  /* ---------------------------------------------------------- typography
+     No webfont is vendored in this tree and this file loads nothing over the
+     network — the stacks degrade to Aptos / Segoe UI / Consolas. Self-hosting
+     under web/assets/fonts/ is an open HOLE; see docs/BRAND_GUIDELINES.md. */
+  --font-sans: "DM Sans", Aptos, Calibri, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Oswald", "Segoe UI Semibold", Impact, var(--font-sans);
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, Menlo,
+               "Liberation Mono", monospace;
+
+  /* Scale. 14px base = the graph_mailer.py canonical body size. */
+  --fs-micro:   0.75rem;    /* 12px — analog captions, pill text             */
+  --fs-meta:    0.8125rem;  /* 13px — signature block, table meta            */
+  --fs-body:    0.875rem;   /* 14px — CANONICAL body                         */
+  --fs-lead:    1rem;
+  --fs-h3:      1.0625rem;
+  --fs-h2:      1.25rem;
+  --fs-h1:      1.5rem;
+  --fs-display: 2.25rem;    /* Oswald mastheads                              */
+
+  --lh-tight: 1.25;
+  --lh-ui:    1.45;
+  --lh-prose: 1.65;         /* graph_mailer.py body line-height              */
+
+  --ls-wordmark: 0.06em;    /* A:iB in Oswald 700                            */
+  --ls-eyebrow:  0.18em;    /* AGENT-IN-BODY in JetBrains Mono               */
+  --ls-caps:     0.04em;    /* mail role line                                */
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* ------------------------------------------------------------- metrics */
+  --space-1: 0.25rem;  --space-2: 0.5rem;   --space-3: 0.75rem;
+  --space-4: 1rem;     --space-5: 1.25rem;  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --radius-sm:    4px;
+  --radius-md:    6px;
+  --radius-lg:    8px;
+  --radius-plate: 16px;   /* aib_letterhead.svg plate radius                 */
+  --radius-pill:  999px;
+
+  --border-hair:  1px;
+  --border-rule:  2px;
+  --focus-ring:   2px;
+  --focus-offset: 2px;
+
+  --measure:     68ch;    /* prose column                                    */
+  --content-max: 1100px;  /* glass main column — matches mmc.css today       */
+
+  --motion-fast: 90ms;
+  --motion-base: 160ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* --------------------------------------------------------------- marks
+     The canonical files live in docs/assets/ and are operator-locked. Do not
+     redraw them (aib_brand.md §7). The mark is inlined here as a data URI
+     because the dev server is rooted at web/ and cannot reach docs/assets/;
+     --brand-asset-path names the real source for anyone copying files. */
+  --brand-asset-path: "docs/assets/";
+  --brand-mark: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%20%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%230A0B0F%22%2F%3E%20%3Crect%20x%3D%223.5%22%20y%3D%223.5%22%20width%3D%2225%22%20height%3D%2225%22%20rx%3D%225%22%20fill%3D%22none%22%20stroke%3D%22%23E2E6ED%22%20stroke-width%3D%221.6%22%2F%3E%20%3Cg%20fill%3D%22none%22%20stroke%3D%22%23E2E6ED%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%3E%20%3Ccircle%20cx%3D%2216%22%20cy%3D%2210.2%22%20r%3D%222.4%22%2F%3E%20%3Cline%20x1%3D%2216%22%20y1%3D%2212.6%22%20x2%3D%2216%22%20y2%3D%2219%22%2F%3E%20%3Cline%20x1%3D%2210.2%22%20y1%3D%2215.2%22%20x2%3D%2221.8%22%20y2%3D%2215.2%22%2F%3E%20%3Cline%20x1%3D%2216%22%20y1%3D%2219%22%20x2%3D%2211.6%22%20y2%3D%2224.6%22%2F%3E%20%3Cline%20x1%3D%2216%22%20y1%3D%2219%22%20x2%3D%2220.4%22%20y2%3D%2224.6%22%2F%3E%20%3C%2Fg%3E%20%3C%2Fsvg%3E");
+  --mark-size-nav:     28px;
+  --mark-size-favicon: 16px;
+  --mark-size-hero:    96px;
+}
+
+/* ==========================================================================
+   Semantic layer — DARK is the A:iB default (titanium on obsidian).
+   Consuming stylesheets read ONLY these --c-* names, never the ramps above.
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  --c-canvas:         var(--aib-obsidian-900);
+  --c-surface:        var(--aib-obsidian-850);
+  --c-surface-raised: var(--aib-obsidian-800);
+  --c-panel:          var(--aib-obsidian-700);
+  --c-divider:        var(--aib-obsidian-600);
+  --c-border:         var(--aib-obsidian-500);
+
+  --c-text:           var(--aib-titanium-100);  /* 15.7:1 on --c-surface     */
+  --c-text-strong:    var(--aib-titanium-050);
+  --c-text-muted:     var(--aib-titanium-300);  /*  7.8:1 on --c-surface     */
+  --c-text-disabled:  var(--aib-titanium-500);  /*  3.8:1 — UI furniture     */
+
+  --c-accent:         var(--aib-info-bright);
+  --c-accent-hover:   #7CA5F3;
+  --c-on-accent:      var(--aib-obsidian-850);  /* 6.1:1 on --c-accent       */
+
+  --c-ok:             var(--aib-ok-bright);
+  --c-warn:           var(--aib-warn-bright);
+  --c-bad:            var(--aib-bad-bright);
+  --c-on-signal:      var(--aib-obsidian-850);
+
+  --c-ok-wash:        #10221A;
+  --c-warn-wash:      #1A1710;
+  --c-bad-wash:       #221012;
+  --c-info-wash:      #101725;
+
+  --c-focus:          var(--aib-info-bright);
+  --c-trail:          var(--jd-green);          /* Nomadic accent only       */
+}
+
+/* Light surfaces — the mail and print register, using the graph_mailer.py
+   hexes verbatim. Opt in explicitly with data-theme="light" on <html>. */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --c-canvas:         var(--aib-paper-050);
+  --c-surface:        var(--aib-paper-000);
+  --c-surface-raised: var(--aib-paper-000);
+  --c-panel:          var(--aib-paper-050);
+  --c-divider:        var(--aib-paper-200);
+  --c-border:         var(--aib-paper-200);
+
+  --c-text:           var(--aib-paper-ink);     /* 16.1:1 on white           */
+  --c-text-strong:    var(--aib-obsidian-850);
+  --c-text-muted:     var(--aib-paper-muted);   /*  4.9:1 on white           */
+  --c-text-disabled:  #9AA0B2;                  /*  UI furniture only        */
+
+  --c-accent:         var(--aib-info-deep);
+  --c-accent-hover:   #2449A8;
+  --c-on-accent:      var(--aib-titanium-050);  /* 5.7:1 on --c-accent       */
+
+  --c-ok:             var(--aib-ok-deep);
+  --c-warn:           var(--aib-warn-deep);
+  --c-bad:            var(--aib-bad-deep);
+  --c-on-signal:      var(--aib-titanium-050);
+
+  --c-ok-wash:        #E8F5EE;
+  --c-warn-wash:      #FBF3E2;
+  --c-bad-wash:       #FBECEC;
+  --c-info-wash:      #ECF1FD;
+
+  --c-focus:          var(--aib-info-deep);
+}
+
+/* ==========================================================================
+   Typographic base. Deliberately thin: families, sizes, and the two brand
+   lockups. Cards, tables, grids and forms stay in mmc.css.
+   ========================================================================== */
+
+.brand-type,
+body.brand-type {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-ui);
+  color: var(--c-text);
+  background: var(--c-canvas);
+  -webkit-font-smoothing: antialiased;
+}
+
+.brand-display,
+.brand-type h1,
+.brand-type h2,
+.brand-type h3 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.01em;
+}
+
+.brand-type h1 { font-size: var(--fs-h1); }
+.brand-type h2 { font-size: var(--fs-h2); }
+.brand-type h3 { font-size: var(--fs-h3); }
+
+.brand-prose { line-height: var(--lh-prose); max-width: var(--measure); }
+.brand-mono  { font-family: var(--font-mono); font-size: var(--fs-meta); }
+.brand-meta  { color: var(--c-text-muted); font-size: var(--fs-meta); }
+
+.brand-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+}
+
+/* Lockup: mark + A:iB + AGENT-IN-BODY. Mirrors aib_letterhead.svg.
+   The colon is the namespace — never AiB, never AIB (aib_brand.md §2). */
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-mark {
+  flex: none;
+  width: var(--mark-size-nav);
+  height: var(--mark-size-nav);
+  background-image: var(--brand-mark);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: var(--radius-md);
+}
+
+.brand-wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-h2);
+  letter-spacing: var(--ls-wordmark);
+  color: var(--c-text);
+  line-height: 1;
+}
+
+.brand-subline {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--c-text-muted);
+  line-height: 1;
+  margin-top: var(--space-1);
+}
+
+/* Focus is a brand element, not an afterthought. */
+.brand-type :focus-visible,
+.brand-focus:focus-visible {
+  outline: var(--focus-ring) solid var(--c-focus);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-type *,
+  .brand-type *::before,
+  .brand-type *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}

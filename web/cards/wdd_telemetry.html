@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A:iB MMC - WDD Telemetry</title>
+  <link rel="stylesheet" href="brand.css" />
+  <link rel="stylesheet" href="mmc.css" />
+</head>
+<body class="brand-type">
+  <header class="app">
+    <a class="brand-lockup" href="index.html">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <span class="brand-wordmark">A:iB</span>
+        <span class="brand-subline">WDD Telemetry</span>
+      </span>
+    </a>
+    <nav>
+      <a href="index.html">Launcher</a>
+      <a href="users.html">Users</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="policy.html">Policy</a>
+      <a href="events.html">Events</a>
+      <a href="wdd_telemetry.html" aria-current="page">WDD Telemetry</a>
+    </nav>
+  </header>
+  <main>
+    <h1>WDD Process Telemetry</h1>
+    <p class="sub" id="generated-at">
+      Loading snapshot...
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Mailbox Queues</h2>
+        <p>Current envelope depths.</p>
+        <ul id="queues-list" style="list-style: none; padding: 0; margin-top: 1rem;"></ul>
+      </div>
+      
+      <div class="card">
+        <h2>Seal Compliance</h2>
+        <p>Three-proofs validation statuses.</p>
+        <ul id="seal-list" style="list-style: none; padding: 0; margin-top: 1rem;"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Stale Leases</h2>
+        <p>Leases expired in processing.</p>
+        <div id="stale-leases" style="font-size: 2rem; margin-top: 1rem;">0</div>
+      </div>
+      
+      <div class="card">
+        <h2>Agent Throughput</h2>
+        <p>Total passes per agent.</p>
+        <ul id="throughput-list" style="list-style: none; padding: 0; margin-top: 1rem;"></ul>
+      </div>
+    </div>
+    
+    <div class="card" style="margin-top: 2rem;">
+      <h2>WDD Envelope Ledger</h2>
+      <p>Single source of truth extracted directly from the Mailbox queues.</p>
+      <div style="max-height: 400px; overflow-y: auto; margin-top: 1rem; border: 1px solid var(--border-subtle);">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem;">
+          <thead style="position: sticky; top: 0; background-color: var(--surface-primary); border-bottom: 2px solid var(--border-subtle);">
+            <tr>
+              <th style="padding: 0.75rem;">Workorder</th>
+              <th style="padding: 0.75rem;">Agent</th>
+              <th style="padding: 0.75rem;">Description</th>
+              <th style="padding: 0.75rem;">Status</th>
+            </tr>
+          </thead>
+          <tbody id="ledger-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <footer>
+    MAN: wdd-telemetry(1)  TUI: python tui/views/wdd_telemetry.py 
+    GUI: this card
+  </footer>
+
+  <script>
+    fetch('wdd_snapshot.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('generated-at').innerText = 'Generated at: ' + data.generated_at + ' | Root: ' + data.root;
+        
+        var qList = document.getElementById('queues-list');
+        for (const [q, d] of Object.entries(data.metrics.queue_depths)) {
+          var li = document.createElement('li');
+          li.style.display = 'flex';
+          li.style.justifyContent = 'space-between';
+          li.style.borderBottom = '1px solid var(--border-subtle)';
+          li.style.padding = '0.5rem 0';
+          
+          var name = document.createElement('strong');
+          name.innerText = q;
+          var val = document.createElement('span');
+          val.innerText = d;
+          
+          li.appendChild(name);
+          li.appendChild(val);
+          qList.appendChild(li);
+        }
+
+        var sList = document.getElementById('seal-list');
+        var c = data.metrics.seal_compliance;
+        if (c.unavailable) {
+          sList.innerHTML = '<li style="color: var(--status-warn); font-weight: bold;">UNAVAILABLE</li>';
+        } else {
+          var items = [
+            { label: 'Fully Proven (SEALED)', val: c.fully_proven },
+            { label: 'Unverified (OPEN)', val: c.unverified, warn: true },
+            { label: 'Nonconforming', val: c.nonconforming_commits, err: true }
+          ];
+          items.forEach(function(item) {
+            var li = document.createElement('li');
+            li.style.display = 'flex';
+            li.style.justifyContent = 'space-between';
+            li.style.padding = '0.25rem 0';
+            
+            var name = document.createElement('span');
+            name.innerText = item.label;
+            var val = document.createElement('strong');
+            val.innerText = item.val;
+            
+            if (item.warn && item.val > 0) val.style.color = 'var(--status-warn)';
+            if (item.err && item.val > 0) val.style.color = 'var(--status-err)';
+            
+            li.appendChild(name);
+            li.appendChild(val);
+            sList.appendChild(li);
+          });
+        }
+
+        var staleEl = document.getElementById('stale-leases');
+        staleEl.innerText = data.metrics.stale_leases;
+        if (data.metrics.stale_leases > 0) {
+          staleEl.style.color = 'var(--status-err)';
+        }
+        
+        var tList = document.getElementById('throughput-list');
+        for (const [agent, count] of Object.entries(data.metrics.throughput)) {
+          var li = document.createElement('li');
+          li.style.display = 'flex';
+          li.style.justifyContent = 'space-between';
+          li.style.fontSize = '0.875rem';
+          li.style.padding = '0.25rem 0';
+          
+          var name = document.createElement('span');
+          name.innerText = agent;
+          var val = document.createElement('strong');
+          val.innerText = count;
+          
+          li.appendChild(name);
+          li.appendChild(val);
+          tList.appendChild(li);
+        }
+
+        // Render Ledger
+        var tbody = document.getElementById('ledger-table');
+        if (data.metrics.ledger) {
+          data.metrics.ledger.forEach(function(row) {
+            var tr = document.createElement('tr');
+            tr.style.borderBottom = '1px solid var(--border-subtle)';
+            
+            // Color code the status
+            var statusColor = 'inherit';
+            if (row.status === 'SEALED') statusColor = 'var(--status-ok)';
+            if (row.status === 'OPEN') statusColor = 'var(--status-warn)';
+            if (row.status === 'REFUSED' || row.status === 'BLOCKED') statusColor = 'var(--status-err)';
+            
+            tr.innerHTML = `
+              <td style="padding: 0.75rem; font-family: monospace;">${row.id}</td>
+              <td style="padding: 0.75rem;">${row.agent}</td>
+              <td style="padding: 0.75rem; color: var(--text-secondary);">${row.title}</td>
+              <td style="padding: 0.75rem; font-weight: bold; color: ${statusColor};">${row.status}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        }
+      })
+      .catch(err => {
+        document.getElementById('generated-at').innerText = "Error: Could not load wdd_snapshot.json. Ensure the aggregator has run.";
+      });
+  </script>
+</body>
+</html>

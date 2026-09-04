@@ -1,0 +1,47 @@
+{
+  "workorder_id": "wo-000-genesis-audit",
+  "version": "1.0.0",
+  "completed_at": "2026-09-04T13:00:00Z",
+  "executed_by": "agent:opus.jdieselny.com",
+  "status": "DONE",
+  "outcome": "CONDITIONAL_PASS",
+  "summary": "Genesis Block audited. Architecture is coherent; the plan as sequenced could not execute. Three grid squares (E-01 Ledger & Replay, F-01 Trust & Mailbox Security, G-01 Quality & Governance) and 26 workorders (WO-007..WO-032) added to close the holes.",
+  "deliverables_written": [
+    "docs/HOLEMAP.md",
+    "docs/AUDIT_REPORT.md"
+  ],
+  "acceptance_criteria_met": [
+    {
+      "criterion": "HOLEMAP.md is expanded to include all necessary execution steps.",
+      "met": true,
+      "evidence": "Queue expanded 7 -> 33 workorders; Phase and Depends On columns added; phased execution sequence and status vocabulary defined."
+    },
+    {
+      "criterion": "AUDIT_REPORT.md is written and clear.",
+      "met": true,
+      "evidence": "15 findings (F-1..F-15), 3 rated CRITICAL, each mapped to a specific remediating workorder."
+    }
+  ],
+  "blocking_findings": [
+    "F-1 Bootstrap paradox: `python wdd replay` builds the CLI it requires; no wdd source exists in repo.",
+    "F-2 Replay has no ledger substrate; no journal schema and no recorder in the queue.",
+    "F-3 mailbox/inbox is an unauthenticated remote-execution surface: workorders are unsigned while receipts are signed."
+  ],
+  "hole_map_additions": {
+    "squares": ["E-01", "F-01", "G-01"],
+    "workorders": [
+      "WO-007", "WO-008", "WO-009", "WO-010", "WO-011", "WO-012", "WO-013",
+      "WO-014", "WO-015", "WO-016", "WO-017", "WO-018", "WO-019", "WO-020",
+      "WO-021", "WO-022", "WO-023", "WO-024", "WO-025", "WO-026", "WO-027",
+      "WO-028", "WO-029", "WO-030", "WO-031", "WO-032"
+    ]
+  },
+  "next_action": "Execute Phase 0: WO-007 (stage-0 bootstrap.py), then WO-008 (packaging).",
+  "attestation": {
+    "signed": false,
+    "reason": "No signing authority exists. Key management is WO-016 and receipt issuance is WO-018; both are HOLE. This result is self-attested and MUST be re-swept and sealed once WO-018 lands. See AUDIT_REPORT.md section 6.",
+    "receipt_id": null
+  },
+  "inbox_envelope_moved": false,
+  "inbox_envelope_note": "mailbox/inbox/wo-000-genesis-audit.json left in place: the mailbox runner that owns OPEN -> LEASED -> SEALED transitions is WO-005/WO-014, both HOLE."
+}

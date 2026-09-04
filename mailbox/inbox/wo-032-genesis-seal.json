@@ -1,0 +1,24 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-032-genesis-seal",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:46:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:smith.jdieselny.com",
+  "action": "system.seal",
+  "priority": "HIGH",
+  "grid_squares": ["G-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "The Genesis Seal",
+  "status": "OPEN",
+  "description": "The system has successfully bootstrapped itself. This workorder instructs the principal architect to run `wdd validate` and `wdd sweep`, print the final hash chain, and declare the factory open for business.",
+  "dependencies": ["wo-003-ob-writer"],
+  "deliverables": [
+    "docs/GENESIS_SEAL.md"
+  ],
+  "requirements": {
+    "validation": "System must pass full validation and sweep."
+  },
+  "acceptance_criteria": ["The git tree is clean and `GENESIS_SEAL.md` exists."],
+  "failure_modes": ["FAIL: N/A"]
+}

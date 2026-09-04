@@ -2,15 +2,15 @@
   "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
   "receipt_id": "rcpt-wo-018-receipt-gate",
   "version": "EP-RECEIPT-v1.0",
-  "issued_at": "2026-09-04T17:51:32.203573Z",
+  "issued_at": "2026-09-04T21:10:52.928719Z",
   "workorder_id": "wo-018-receipt-gate",
   "evaluator": "agent:grok-46-build-tui.jdieselny.com",
   "policy_outcome": "ACCEPTED",
   "admitted_action": "trust.crypto.receipts",
-  "evidence_digest_sha256": "0c537e89c4f37829fa4750bdff0f9bd353de430be0b64bbdd84725c984015304",
+  "evidence_digest_sha256": "7c42cc64eec21968d6ba01df5b6e833d32db8d7ac2b85b876bc41810532ab59b",
   "signature": {
     "key_id": "agent_key",
     "alg": "Ed25519",
-    "sig_b64": "kH4aC9Pd+DM/Bzs4DShdzIkH0/uzDCRFSsW9h2c7WBpbj0MIk9jYefrYOm0crtJHgwyx12xvAuhjXjGly51zDA=="
+    "sig_b64": "l5KkOeGRK8QrM5okZegTDC3FxBipOk+uribrWrrHL6eQrpH/TQM73Km0+lOvcIPgcpsYSRv1CZTYH8wtTxJSCw=="
   }
 }

@@ -1,10 +1,16 @@
 {
-  "status": "OPEN",
-  "receipt_id": "receipt_wo-022-wdd-replay",
-  "files_written": [
-    "lib/wdd/cli.py",
-    "lib/wdd/replay.py"
-  ],
-  "agent_id": "agent:codex.jdieselny.com",
-  "workorder_id": "wo-022-wdd-replay"
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-022-wdd-replay",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.904587Z",
+  "workorder_id": "wo-022-wdd-replay",
+  "evaluator": "agent:codex.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "cli.engine.replay",
+  "evidence_digest_sha256": "c16e3ba11c1bcacaa74b1507e49a670e4d470d1e6762a2a06d52dd4508c665a2",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "k95fn/zUMStfBoSpMjawiup8ZdO+kDkPJu1hiJXXy5Igk3zsITaXEtC8+KlO/qnSVSQSgSZ2Nq6i2aly48pjAA=="
+  }
 }

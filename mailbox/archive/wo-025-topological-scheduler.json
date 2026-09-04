@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-025-topological-scheduler",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:37:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:opus.jdieselny.com",
+  "action": "compiler.schedule",
+  "priority": "HIGH",
+  "grid_squares": [
+    "C-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Topological Scheduler",
+  "status": "SEALED",
+  "description": "Implement `lib/wdd/scheduler.py` to parse `dependencies` across all envelopes and perform a topological sort with cycle detection.",
+  "dependencies": [
+    "wo-002-intent-processor"
+  ],
+  "deliverables": [
+    "lib/wdd/scheduler.py"
+  ],
+  "requirements": {
+    "graph": "Throw a fatal error if a circular dependency is detected (e.g., A -> B -> A)."
+  },
+  "acceptance_criteria": [
+    "The module successfully sorts a list of valid envelopes and throws an exception on a cycle."
+  ],
+  "failure_modes": [
+    "FAIL: Silent failures on cycles."
+  ],
+  "nonce": "5cc24289c09c5c28",
+  "expires_at": "2027-09-04T21:11:18.259737Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "58e28f693373ad1199805f5317c22393a1d92536d273fe7e17824c50be19c05aca543f2d2b32fb153939c91dc5030aa112e8c63e249dfa60d1f5fd4f646fb20c"
+  }
+}

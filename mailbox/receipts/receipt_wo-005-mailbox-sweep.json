@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-005-mailbox-sweep",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.883762Z",
+  "workorder_id": "wo-005-mailbox-sweep",
+  "evaluator": "agent:grok-46-build-tui.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "cli.engine.sweep",
+  "evidence_digest_sha256": "29031d5b477df2b44f5623c89bb5dabcd06649efaae916400345b3973ecdac6d",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "rnwify6FnTOQybHPAIO4MvXej8Q9St5waflx9Cha+X3+R2+D7h7F7WYVYi9K0Kv3UveuNvLl2A9j0aKX3nfoBA=="
+  }
+}

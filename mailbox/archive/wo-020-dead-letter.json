@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-020-dead-letter",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:52:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.mailbox.deadletter",
+  "priority": "HIGH",
+  "grid_squares": [
+    "B-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Dead-Letter Path & Backoff",
+  "status": "SEALED",
+  "description": "Implement the `lib/wdd/mailbox.py` handler for failed workorders. If an agent crashes or the `failure_modes` are hit, the envelope moves to `mailbox/failed/`.",
+  "dependencies": [
+    "wo-014-mailbox-contract"
+  ],
+  "deliverables": [
+    "lib/wdd/mailbox.py"
+  ],
+  "requirements": {
+    "escalation": "Must increment an `attempt_counter` and move to `failed/` if attempts > 3."
+  },
+  "acceptance_criteria": [
+    "A mocked failure moves the envelope to the dead-letter directory."
+  ],
+  "failure_modes": [
+    "FAIL: Infinite retry loops."
+  ],
+  "nonce": "4e3f12cd76f9e615",
+  "expires_at": "2027-09-04T21:11:18.256775Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "303cf02e3104f373d684b9bb7d2dd64b185b04b8b10408003dc1cdcbc9fedd95a02eae883500e830bfe1219b4e32a41c76bc9443fc0846bb70d518c103bcd400"
+  }
+}

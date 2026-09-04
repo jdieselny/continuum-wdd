@@ -1,11 +1,16 @@
 {
-  "status": "OPEN",
-  "receipt_id": "receipt_wo-023-benchmark-rubric",
-  "files_written": [
-    "tests/rubric.json",
-    "lib/wdd/replay.py",
-    "lib/wdd/cli.py"
-  ],
-  "agent_id": "agent:codex.jdieselny.com",
-  "workorder_id": "wo-023-benchmark-rubric"
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-023-benchmark-rubric",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.905726Z",
+  "workorder_id": "wo-023-benchmark-rubric",
+  "evaluator": "agent:codex.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "ledger.benchmark",
+  "evidence_digest_sha256": "53542d1c6b6b75c0cc19aa349efd7640c06c56c13beac828e4041732d65b8e19",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "vVU5+eizKdlK6Ip7pFfH4TeGUblDqhN0+ujjbuaBWfQbxhisbi8h/+pXH4ovq3AKqk605hIWHqlv+Jb6cqmfAA=="
+  }
 }

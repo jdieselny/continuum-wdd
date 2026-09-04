@@ -1,0 +1,40 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-022-wdd-replay",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:21:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "cli.engine.replay",
+  "priority": "HIGH",
+  "grid_squares": [
+    "E-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "WDD Replay Engine",
+  "status": "SEALED",
+  "description": "Implement the `wdd replay` command in `lib/wdd/cli.py` and `lib/wdd/replay.py`. This reads the hash-chained ledger and sequentially prints out the execution history.",
+  "dependencies": [
+    "wo-021-ledger-recorder"
+  ],
+  "deliverables": [
+    "lib/wdd/cli.py",
+    "lib/wdd/replay.py"
+  ],
+  "requirements": {
+    "verification": "Must recalculate the hash chain on the fly. If `current_hash` of entry N-1 does not match `previous_hash` of entry N, abort with a fatal cryptographic error."
+  },
+  "acceptance_criteria": [
+    "`wdd replay` prints the execution log and returns exit code 0 if hashes match."
+  ],
+  "failure_modes": [
+    "FAIL: Skipping hash verification during replay."
+  ],
+  "nonce": "1d17e533cf50df0e",
+  "expires_at": "2027-09-04T21:11:18.257951Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "f754212b0036af0922c3a793949a2a9d629fa4996ad059e40ae1043e9d8034c6cbfe1a3c8ae5e8306b2aaa850da5df6047a3e61d9ed4f4154bc815de60409700"
+  }
+}

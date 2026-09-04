@@ -1,0 +1,40 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-010-schema-ledger",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:36:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "contract.schema.ledger",
+  "priority": "HIGH",
+  "grid_squares": [
+    "A-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Ledger Schema: Hash-Chained Journal",
+  "status": "SEALED",
+  "description": "Create `schemas/ledger.schema.json` defining a hash-chained append-only journal entry. The replay engine uses this to mathematically verify sequence.",
+  "dependencies": [
+    "wo-009-lifecycle"
+  ],
+  "deliverables": [
+    "schemas/ledger.schema.json"
+  ],
+  "requirements": {
+    "hash_chain": "Must include `previous_hash` and `current_hash` properties.",
+    "payload": "Must include `workorder_id` and `receipt_id` references."
+  },
+  "acceptance_criteria": [
+    "Valid JSON schema draft-07."
+  ],
+  "failure_modes": [
+    "FAIL: Missing cryptographic hash validation regex."
+  ],
+  "nonce": "9d3d4e761f25ecf2",
+  "expires_at": "2027-09-04T21:11:18.250859Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "9abf417beb455f13e6c482f77f1873cc6d710b6e23ddb21df280031274bae07b30b28736f37bc6b4e0fc16446ac76d8f22bfc1519edf747eccc9777614192a01"
+  }
+}

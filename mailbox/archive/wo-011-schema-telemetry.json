@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-011-schema-telemetry",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:39:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "contract.schema.telemetry",
+  "priority": "HIGH",
+  "grid_squares": [
+    "A-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Telemetry Event Schema",
+  "status": "SEALED",
+  "description": "Create `schemas/telemetry.schema.json` to define the telemetry events that the WDD Dashboard will consume.",
+  "dependencies": [
+    "wo-009-lifecycle"
+  ],
+  "deliverables": [
+    "schemas/telemetry.schema.json"
+  ],
+  "requirements": {
+    "properties": "Must include `event_id`, `timestamp`, `workorder_id`, `agent_id`, `transition` (e.g. OPEN->LEASED)."
+  },
+  "acceptance_criteria": [
+    "Valid JSON schema draft-07."
+  ],
+  "failure_modes": [
+    "FAIL: Missing required timestamps."
+  ],
+  "nonce": "dc7206b54cc0f535",
+  "expires_at": "2027-09-04T21:11:18.251487Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "37ce07815c9e51570f327c3e7da55c60f0906bf41c4067f32c8732688f86ff31c7a8dbc3bf482d4f0ede52fb74896cec317152180f09f8ffb1026cd9f948a30a"
+  }
+}

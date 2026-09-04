@@ -1,0 +1,38 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-007-stage0-bootstrap",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:25:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "bootstrap.stage0",
+  "priority": "CRITICAL",
+  "grid_squares": [
+    "B-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Stage-0 Bootstrap Runner",
+  "status": "SEALED",
+  "description": "Implement `bootstrap.py` in the root directory. This is a zero-dependency, pure Python standard library script. Its only job is to read one JSON envelope from `mailbox/inbox/`, print its contents to the console (simulating dispatch), and move it to `mailbox/outbox/`. This breaks the bootstrap paradox.",
+  "dependencies": [],
+  "deliverables": [
+    "bootstrap.py"
+  ],
+  "requirements": {
+    "stdlib_only": "Must use ONLY `json`, `os`, `shutil`, `sys`. No external dependencies.",
+    "execution_logic": "Scan `mailbox/inbox/`. Pick the first `.json` file. Read it. Print 'DISPATCHING WORKORDER: <id>'. Move file to `mailbox/outbox/`."
+  },
+  "acceptance_criteria": [
+    "Running `python bootstrap.py` successfully moves an envelope from inbox to outbox."
+  ],
+  "failure_modes": [
+    "FAIL: Using any external library like `pydantic` or `requests`."
+  ],
+  "nonce": "79b4aaf626ddeb3e",
+  "expires_at": "2027-09-04T21:11:18.248895Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "87462d19f3c8be49f734c1e5da57fdeea24e0b26962ff7e9ab7b900b1df326c94497d5bdde37a57838a6dbc7b31be4d6eb12a07d3a40ba207e256037e1279303"
+  }
+}

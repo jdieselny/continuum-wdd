@@ -1,8 +1,0 @@
-{
-  "workorder_id": "wo-002-intent-processor",
-  "status": "OPEN",
-  "files_written": [
-    "lib/wdd/compiler.py"
-  ],
-  "agent_id": "agent:opus.jdieselny.com"
-}

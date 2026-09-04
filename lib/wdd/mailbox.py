@@ -96,6 +96,10 @@ class MailboxHandler:
                         if receipt_path != final_receipt_path:
                             shutil.move(receipt_path, final_receipt_path)
                             
+                    # Append to ledger
+                    from wdd.ledger import append_entry
+                    append_entry(envelope, receipt)
+                            
                     print(f"Swept and sealed {filename}")
                 else:
                     print(f"Invalid signature for {filename}")

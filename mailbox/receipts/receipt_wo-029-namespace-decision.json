@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-029-namespace-decision",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.925948Z",
+  "workorder_id": "wo-029-namespace-decision",
+  "evaluator": "agent:codex.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "contract.schema.namespace",
+  "evidence_digest_sha256": "ce966c3954ed6d4d16fbcfbbb2a7b019acdb24433d6911ad2fa09b76c80d7aea",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "THoEWEKx3gFcWg98bfoy0h3zLRzEgZmaNNbIN83j+FcBgWQ8wSdcBSb03GkoJWjS+uBnV4OKzWHXW9W57m1rAg=="
+  }
+}

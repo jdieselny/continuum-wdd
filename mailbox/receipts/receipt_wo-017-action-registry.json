@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-017-action-registry",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.899827Z",
+  "workorder_id": "wo-017-action-registry",
+  "evaluator": "agent:grok-46-build-tui.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "trust.sandbox.registry",
+  "evidence_digest_sha256": "8fb0f1cd9c535bc1b1ddd9433c605a36a159441b7fbb53be930b1ef968e77a03",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "9gO+hfLnK/lFZX5SiDKAtCbuhOngOH5mqLqff7nfxcqJ6+QWhJndbIitMiSgOqUqMOSyCczmqXCsMCv/MTFTCQ=="
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "workorder_id": "wo-017-action-registry",
-  "status": "OPEN",
-  "completed_by": "agent:grok-46-build-tui.jdieselny.com",
-  "files_written": [
-    "lib/wdd/registry.py",
-    "mailbox/receipts/receipt-wo-017-action-registry.json"
-  ]
-}

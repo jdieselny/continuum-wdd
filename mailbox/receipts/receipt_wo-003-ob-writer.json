@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-003-ob-writer",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.881066Z",
+  "workorder_id": "wo-003-ob-writer",
+  "evaluator": "agent:agy.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "gui.dashboard.blueprint",
+  "evidence_digest_sha256": "3b0c3310336aef913436a0d46a8b524687f28acf241e2533eb397d42ad1e0947",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "SkeHGuoe3EJHqosbfJ4oRCszP6gTMLt0mNYOWk6LXQ02qEuLpaQoQlXabfxIVbob9o45Kkq4AQocYdetcYgeAw=="
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-025-topological-scheduler",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.908091Z",
+  "workorder_id": "wo-025-topological-scheduler",
+  "evaluator": "agent:opus.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "compiler.schedule",
+  "evidence_digest_sha256": "134a031cce9eeb1abaf7bbf607219f5b82ee73963409cb828dfdac870baa001b",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "s0HKgUlUBbV3j4V7nnspRG8XVK51bx4Dq74sUqmK7krCzENozg78mL+dFhTsJtG1U8WbWBoEijiEEdlY9o2KAg=="
+  }
+}

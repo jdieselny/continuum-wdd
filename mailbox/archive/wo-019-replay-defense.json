@@ -1,0 +1,41 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-019-replay-defense",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:51:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.crypto.nonce",
+  "priority": "HIGH",
+  "grid_squares": [
+    "F-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Replay-Attack Defense",
+  "status": "SEALED",
+  "description": "Update `workorder.schema.json` to require a `nonce` and `expires_at` field. Implement the logic in `lib/wdd/validator.py` to reject expired envelopes.",
+  "dependencies": [
+    "wo-015-signed-inbound"
+  ],
+  "deliverables": [
+    "schemas/workorder.schema.json",
+    "lib/wdd/validator.py"
+  ],
+  "requirements": {
+    "nonce": "String nonce must be unique.",
+    "expiry": "ISO8601 timestamp for `expires_at`."
+  },
+  "acceptance_criteria": [
+    "`wdd validate` fails if an envelope's `expires_at` is in the past."
+  ],
+  "failure_modes": [
+    "FAIL: Implementing weak expiry checking."
+  ],
+  "nonce": "3fce675bf57fd582",
+  "expires_at": "2027-09-04T21:11:18.256186Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "3d4c2cb24ebcbb3557a06e5f61a656d157db3f883cf44bddcc577e4c101bc94af498c02cc07dd696e4da61a2c5e841f99ca489d2a0d1eb25fadab585c4efdb0e"
+  }
+}

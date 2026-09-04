@@ -28,5 +28,12 @@
   ],
   "failure_modes": [
     "FAIL: Issuing a receipt without actually signing the payload."
-  ]
+  ],
+  "nonce": "5c65c4491950cf60",
+  "expires_at": "2027-09-04T21:11:18.262272Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "b0ace5e0cc82e51b22913c770a0b516d7d3274c97a85e5d5464f8e2bfdb880923033208aa99436d4a18e23131b3cac76f69c65b8f825dc538f311516e783870f"
+  }
 }

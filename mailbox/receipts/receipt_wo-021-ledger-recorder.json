@@ -1,12 +1,16 @@
 {
-  "receipt_id": "receipt_wo-021-ledger-recorder",
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-021-ledger-recorder",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.903448Z",
   "workorder_id": "wo-021-ledger-recorder",
-  "agent_id": "agent:codex.jdieselny.com",
-  "timestamp": "2026-09-04T14:21:08-04:00",
-  "status": "OPEN",
-  "files_written": [
-    "lib/wdd/ledger.py",
-    "mailbox/receipts/receipt_wo-021-ledger-recorder.json",
-    "ledger/"
-  ]
+  "evaluator": "agent:codex.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "ledger.recorder",
+  "evidence_digest_sha256": "69d7047543a7469f43637e3e590b3a6a41b237fd26334d9b35a48fbf59a35672",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "4LeKH39MiifHup6UmaCywpjBpAeqnY3UckYgmFoBAUZtnrKvJKuZWFNhAdYOlTZwSZK8jvwXGzfElxG7DMIeDg=="
+  }
 }

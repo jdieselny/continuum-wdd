@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-003-ob-writer",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:43:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:agy.jdieselny.com",
+  "action": "gui.dashboard.blueprint",
+  "priority": "HIGH",
+  "grid_squares": [
+    "D-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "OB Writer GUI",
+  "status": "SEALED",
+  "description": "Implement `web/cards/wdd_blueprint.html` matching the A:iB styling. This provides the 3-step wizard (Vomit, Scaffold, Fan-Out) to visually drive the Compiler.",
+  "dependencies": [
+    "wo-004-telemetry-dashboard"
+  ],
+  "deliverables": [
+    "web/cards/wdd_blueprint.html"
+  ],
+  "requirements": {
+    "wizard": "Implement a 3-step React wizard for the intent funnel."
+  },
+  "acceptance_criteria": [
+    "The UI renders the 3 passes successfully."
+  ],
+  "failure_modes": [
+    "FAIL: Clunky UX that discourages operator usage."
+  ],
+  "nonce": "8c04e3f88eaa4881",
+  "expires_at": "2027-09-04T21:11:18.246101Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "03d2da4d9da26dde67c259e9215f7da97de582bfd43c827f57fb0885aeb817fd28e5ad573d602f58a2297ad79b778a6e5244a5a7a6d7ac309af9c7ea8394640a"
+  }
+}

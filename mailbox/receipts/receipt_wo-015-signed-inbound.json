@@ -1,8 +1,16 @@
 {
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-015-signed-inbound",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.897360Z",
   "workorder_id": "wo-015-signed-inbound",
-  "status": "OPEN",
-  "agent_id": "agent:grok-46-build-tui.jdieselny.com",
-  "files_written": [
-    "schemas/workorder.schema.json"
-  ]
+  "evaluator": "agent:grok-46-build-tui.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "trust.mailbox.signatures",
+  "evidence_digest_sha256": "e3306d5f83132d0ce305797afa3cc821b66ca454905b14a18f1f21bd68d4304c",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "Fm2qpb2xTd2QLOEdduGM9fqVHLrkkWovcnegAl5+V8hFgxwy0zm/6Dkw+NNPKYm/Gdf+v0iJE9VMFq/9U82eAg=="
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-026-telemetry-emitter",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.912665Z",
+  "workorder_id": "wo-026-telemetry-emitter",
+  "evaluator": "agent:agy.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "telemetry.emitter",
+  "evidence_digest_sha256": "2a7db2c68fea2fdd49bb8c9caa87496a5411769d28cb537b7a975a299cf2fb5c",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "GCxaZuyRzv61aeG+Okst3FpVLQp0IZ49bNr9m3ZlUz+XgvYLAP+f0a0QysLK5wXRYVw6738ixb+0jYO2bkFfBA=="
+  }
+}

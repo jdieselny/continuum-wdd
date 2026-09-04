@@ -1,11 +1,16 @@
 {
-  "receipt_id": "receipt_wo-010-schema-ledger",
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-010-schema-ledger",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.891017Z",
   "workorder_id": "wo-010-schema-ledger",
-  "agent_id": "agent:codex.jdieselny.com",
-  "timestamp": "2026-09-04T13:34:46-04:00",
-  "status": "OPEN",
-  "files_written": [
-    "schemas/ledger.schema.json",
-    "mailbox/receipts/receipt_wo-010-schema-ledger.json"
-  ]
+  "evaluator": "agent:codex.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "contract.schema.ledger",
+  "evidence_digest_sha256": "4448b59811f6ed79f40f22cb1efec38d58b6eb33706c1a5063068f84adcebf42",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "hb6aPdqYJaEheWnHEvsvCErQ0vExlvpwWqseDt+GZBpwVGmGe2I26+tdogZpjl5JIykeRH0o4vzBIzmC0Hh1DQ=="
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-031-prompt-persistence",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.927371Z",
+  "workorder_id": "wo-031-prompt-persistence",
+  "evaluator": "agent:opus.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "compiler.persistence",
+  "evidence_digest_sha256": "2af80254a57a9774eb2ff5201925aab4182b7f35b10a5a2d0985d0288a26e45b",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "iVt6cfJKsvWEO2sxe9/lSd325nvmFREJ/BLet9i7m8CaoVlrbSFwsDcpHf0vM6WgCWKvbWH4VmL/4KAd7s4ZAA=="
+  }
+}

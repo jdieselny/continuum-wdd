@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-002-intent-processor",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:35:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:opus.jdieselny.com",
+  "action": "compiler.intent",
+  "priority": "HIGH",
+  "grid_squares": [
+    "C-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "3-Pass Intent Processor",
+  "status": "SEALED",
+  "description": "Implement the `lib/wdd/compiler.py` module containing the 3-pass OB processing logic (Ingest, Scaffold, Fan-out).",
+  "dependencies": [
+    "wo-013-wdd-validate"
+  ],
+  "deliverables": [
+    "lib/wdd/compiler.py"
+  ],
+  "requirements": {
+    "engine": "Create a `BlueprintEngine` class matching the WDD specification."
+  },
+  "acceptance_criteria": [
+    "The module loads cleanly and implements the 3 passes."
+  ],
+  "failure_modes": [
+    "FAIL: Implementing it as a GUI instead of a headless API."
+  ],
+  "nonce": "7d03caa59e3db6ca",
+  "expires_at": "2027-09-04T21:11:18.245388Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "14bc20a75d8be9f3f363edf8936f48f75fbdf08f731b95e90cbe89b6be176a9f9b818fd32147e446f554364710be4d4f286ffc9a7e6cd8bd5e72cc2b87b1510e"
+  }
+}

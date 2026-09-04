@@ -1,0 +1,43 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-004-telemetry-dashboard",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:42:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:agy.jdieselny.com",
+  "action": "gui.dashboard.telemetry",
+  "priority": "HIGH",
+  "grid_squares": [
+    "D-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Telemetry Dashboard GUI",
+  "status": "SEALED",
+  "description": "Implement `web/cards/wdd_telemetry.html` and `web/cards/brand.css`. This React card reads `mailbox/events/` (mocked) and displays the realtime burn rate and workorder statuses.",
+  "dependencies": [
+    "wo-026-telemetry-emitter"
+  ],
+  "deliverables": [
+    "web/cards/wdd_telemetry.html",
+    "web/cards/brand.css",
+    "web/cards/mmc.css",
+    "web/cards/index.html"
+  ],
+  "requirements": {
+    "styling": "Must strictly use the dark-mode `brand.css` A:iB styling.",
+    "react": "Build using standalone React and Babel."
+  },
+  "acceptance_criteria": [
+    "The HTML card loads visually in a browser."
+  ],
+  "failure_modes": [
+    "FAIL: Using external UI libraries instead of pure HTML/CSS React."
+  ],
+  "nonce": "47975ad909f73f67",
+  "expires_at": "2027-09-04T21:11:18.246770Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "909b92d91b6b915c590a4775ffc5332085674b1da4e1f41cb259b6ff6f7b68593bcca0535486a0d356fad1f8efc3a924715e5ddee259b7c22c7cde0a78ad680f"
+  }
+}

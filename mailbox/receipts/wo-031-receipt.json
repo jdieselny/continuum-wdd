@@ -1,7 +1,0 @@
-{
-  "workorder_id": "wo-031-prompt-persistence",
-  "status": "OPEN",
-  "files_written": [
-    "lib/wdd/compiler.py"
-  ]
-}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-016-keygen",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:10:52.898616Z",
+  "workorder_id": "wo-016-keygen",
+  "evaluator": "agent:grok-46-build-tui.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "trust.crypto.keygen",
+  "evidence_digest_sha256": "7af16f90be94c5def34488812e28504f838bbe85430e15720b7303da81da9ddc",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "ueScEMJlk2AXN0U+aaXdAnl1Npzych9PdOmHnFpsgRSu1ZO7DkDIFKOufp/5wfFL63JGN0lHVn6wMPpYwt6aBw=="
+  }
+}

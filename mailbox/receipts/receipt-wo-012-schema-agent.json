@@ -1,9 +1,0 @@
-{
-  "workorder_id": "wo-012-schema-agent",
-  "status": "OPEN",
-  "agent_id": "agent:codex.jdieselny.com",
-  "files_written": [
-    "schemas/agent.schema.json",
-    "mailbox/receipts/receipt-wo-012-schema-agent.json"
-  ]
-}

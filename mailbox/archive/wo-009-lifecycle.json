@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-009-lifecycle",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:38:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "contract.schema.lifecycle",
+  "priority": "HIGH",
+  "grid_squares": [
+    "A-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Lifecycle State Machine",
+  "status": "SEALED",
+  "description": "Refine `schemas/workorder.schema.json` to formally enumerate the `status` string property and define legal state transitions.",
+  "dependencies": [
+    "wo-006-schema-workorder"
+  ],
+  "deliverables": [
+    "schemas/workorder.schema.json"
+  ],
+  "requirements": {
+    "status_enum": "Add `status` as a required property. Enum: OPEN, LEASED, BLOCKED, DONE, SEALED, FAILED, CANCELLED."
+  },
+  "acceptance_criteria": [
+    "The schema passes JSON draft-07 validation and rejects invalid statuses."
+  ],
+  "failure_modes": [
+    "FAIL: Forgetting to add `status` to the `required` array."
+  ],
+  "nonce": "70b9fc040b399d05",
+  "expires_at": "2027-09-04T21:11:18.250222Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "33a59619d4dd0499c4c1d746acdd5eb238804e8a9653f96476ef91802a19183320d3412d700c7516a1e1b6e3bc745432ed74605c9749c30da21fed63751bfd09"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-031-prompt-persistence",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:38:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:opus.jdieselny.com",
+  "action": "compiler.persistence",
+  "priority": "HIGH",
+  "grid_squares": [
+    "C-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Vomit Prompt Persistence",
+  "status": "SEALED",
+  "description": "Update `lib/wdd/compiler.py` to persist the raw input and intermediate passes to `docs/INTENT.md` so the compilation process is auditable.",
+  "dependencies": [
+    "wo-002-intent-processor"
+  ],
+  "deliverables": [
+    "lib/wdd/compiler.py"
+  ],
+  "requirements": {
+    "audit": "Write the exact raw input to a file before passing it to the LLM."
+  },
+  "acceptance_criteria": [
+    "The raw intent is written to disk."
+  ],
+  "failure_modes": [
+    "FAIL: Throwing away the raw intent string."
+  ],
+  "nonce": "cf3f383bfd676633",
+  "expires_at": "2027-09-04T21:11:18.261692Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "53a441ea3991008d6f77172593ce249a9eccb94f91c2b8eb751e1254463cc4d546b93add582b1cbfde35969d372e07cbb16e56283e4b6b59f90f76bb0d28e800"
+  }
+}

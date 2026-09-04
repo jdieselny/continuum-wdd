@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-032-genesis-seal",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:46:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:smith.jdieselny.com",
+  "action": "system.seal",
+  "priority": "HIGH",
+  "grid_squares": [
+    "G-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "The Genesis Seal",
+  "status": "SEALED",
+  "description": "The system has successfully bootstrapped itself. This workorder instructs the principal architect to run `wdd validate` and `wdd sweep`, print the final hash chain, and declare the factory open for business.",
+  "dependencies": [
+    "wo-003-ob-writer"
+  ],
+  "deliverables": [
+    "docs/GENESIS_SEAL.md"
+  ],
+  "requirements": {
+    "validation": "System must pass full validation and sweep."
+  },
+  "acceptance_criteria": [
+    "The git tree is clean and `GENESIS_SEAL.md` exists."
+  ],
+  "failure_modes": [
+    "FAIL: N/A"
+  ],
+  "nonce": "398e0fa9efaa08ea",
+  "expires_at": "2027-09-04T21:11:18.241754Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "929195477345ae1573c77caeebc6e66a4f7398d7be9353d3cefc4a3b45c7d152da9b414be40f1b95b296646296854a1e82d0cf29260be53390412c96d84f6b0e"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-029-namespace-decision",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:42:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "contract.schema.namespace",
+  "priority": "HIGH",
+  "grid_squares": [
+    "A-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Namespace Canonicalization",
+  "status": "SEALED",
+  "description": "Reconcile `$id` host in all schemas. Change `https://aib.emilia.ai/schemas/...` to `https://wdd.jdieselny.com/schemas/...` as per the Opus audit finding F-11.",
+  "dependencies": [
+    "wo-006-schema-workorder"
+  ],
+  "deliverables": [
+    "schemas/workorder.schema.json",
+    "schemas/receipt.schema.json",
+    "schemas/ledger.schema.json",
+    "schemas/telemetry.schema.json",
+    "schemas/agent.schema.json"
+  ],
+  "requirements": {
+    "replace": "Global replace of the old URI namespace with the new sovereign namespace."
+  },
+  "acceptance_criteria": [
+    "All schemas correctly declare the new URI."
+  ],
+  "failure_modes": [
+    "FAIL: Missing a schema or breaking the `$schema` references."
+  ],
+  "nonce": "b3e15040b4930531",
+  "expires_at": "2027-09-04T21:11:18.261093Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "b68f66aa029dc90b3b8a1682edcae1c24c3a8ae6de10998853e731e8d38ef3f2d3bf849550bd934db93211f23ef031bbd2d63465e9e713959766babfa5fc4b0a"
+  }
+}

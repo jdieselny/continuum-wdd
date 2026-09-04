@@ -1,0 +1,40 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-023-benchmark-rubric",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:22:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "ledger.benchmark",
+  "priority": "HIGH",
+  "grid_squares": [
+    "E-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Golden Outputs & Benchmark Rubric",
+  "status": "SEALED",
+  "description": "Create `tests/rubric.json` containing the expected wall-clock time and token burn constraints for Iman's benchmark. Update `wdd replay` to score the run against this rubric.",
+  "dependencies": [
+    "wo-022-wdd-replay"
+  ],
+  "deliverables": [
+    "tests/rubric.json",
+    "lib/wdd/replay.py"
+  ],
+  "requirements": {
+    "rubric": "Define `max_wall_clock_seconds` and `max_token_burn`."
+  },
+  "acceptance_criteria": [
+    "`wdd replay --benchmark` prints a PASS/FAIL score."
+  ],
+  "failure_modes": [
+    "FAIL: Missing the --benchmark flag in the CLI."
+  ],
+  "nonce": "1d8b182d6bd16f8a",
+  "expires_at": "2027-09-04T21:11:18.258559Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "380e3fe5582dfeef1db18f89898d984f4b1d4932ce67fc6761efba4a39208e60f7d41b00ce581cf5fc2a6a9a59c554d0d2eebea2003247a7fe9c026073c3180c"
+  }
+}

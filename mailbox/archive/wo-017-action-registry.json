@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-017-action-registry",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:49:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.sandbox.registry",
+  "priority": "HIGH",
+  "grid_squares": [
+    "F-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Action Registry",
+  "status": "SEALED",
+  "description": "Create `lib/wdd/registry.py` containing a deny-by-default allowlist of acceptable `action` verbs.",
+  "dependencies": [
+    "wo-008-packaging"
+  ],
+  "deliverables": [
+    "lib/wdd/registry.py"
+  ],
+  "requirements": {
+    "registry": "Must define the canonical list of actions the fleet is allowed to execute."
+  },
+  "acceptance_criteria": [
+    "The registry python module loads successfully."
+  ],
+  "failure_modes": [
+    "FAIL: Allowing arbitrary string actions."
+  ],
+  "nonce": "0c6a36b2bd710a7c",
+  "expires_at": "2027-09-04T21:11:18.255258Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "f0d6dd081767951300743473e666d1798cb9da62219f95c0157470b5e065c2361d4b091169b604bda3ece82a9b5b429503434ed2517f25b03f86088f2917c605"
+  }
+}

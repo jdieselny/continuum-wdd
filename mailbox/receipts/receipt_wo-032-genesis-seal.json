@@ -1,0 +1,16 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
+  "receipt_id": "rcpt-wo-032-genesis-seal",
+  "version": "EP-RECEIPT-v1.0",
+  "issued_at": "2026-09-04T21:14:10.721867Z",
+  "workorder_id": "wo-032-genesis-seal",
+  "evaluator": "agent:smith.jdieselny.com",
+  "policy_outcome": "ACCEPTED",
+  "admitted_action": "system.seal",
+  "evidence_digest_sha256": "bb8cbe682d264b15e63e4bd6cd09565ab478f469e96923eb49d5c7238468d471",
+  "signature": {
+    "key_id": "agent_key",
+    "alg": "Ed25519",
+    "sig_b64": "bJ2xl5UwOvPkscFbBG3FXGCUSO2s+ke/iUiDexYiGVApJcXZkiM21j6Uwl761nrFHcGGPPo43DLuX/5oDavXAw=="
+  }
+}

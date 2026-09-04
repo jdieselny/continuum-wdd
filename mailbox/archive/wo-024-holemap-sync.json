@@ -1,0 +1,39 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-024-holemap-sync",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:36:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:opus.jdieselny.com",
+  "action": "compiler.sync",
+  "priority": "HIGH",
+  "grid_squares": [
+    "C-01"
+  ],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Hole Map Synchronizer",
+  "status": "SEALED",
+  "description": "Implement a script `lib/wdd/sync.py` that reads the `mailbox/` and automatically updates the markdown table in `docs/HOLEMAP.md`.",
+  "dependencies": [
+    "wo-002-intent-processor"
+  ],
+  "deliverables": [
+    "lib/wdd/sync.py"
+  ],
+  "requirements": {
+    "sync": "Must accurately reflect OPEN, SEALED, etc. from the JSON envelopes into the markdown."
+  },
+  "acceptance_criteria": [
+    "Running the sync script updates the markdown table accurately."
+  ],
+  "failure_modes": [
+    "FAIL: Destroying non-table content in HOLEMAP.md."
+  ],
+  "nonce": "c2b3913ee4b82b85",
+  "expires_at": "2027-09-04T21:11:18.259148Z",
+  "issuer_signature": {
+    "key_id": "principal_agent_smith",
+    "alg": "Ed25519",
+    "signature_hex": "8cd84f3a9631206c2fd4f8112ad2ad0c445db3cc382403bd43428db8185ea2c894b9d37a7a79169cdd877a07f0005db7fa9dd867a22e9fc06684c5c11c9ada01"
+  }
+}

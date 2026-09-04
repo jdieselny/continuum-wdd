@@ -1,0 +1,9 @@
+{
+  "workorder_id": "wo-019-replay-defense",
+  "status": "OPEN",
+  "agent_id": "agent:grok-46-build-tui.jdieselny.com",
+  "files_written": [
+    "schemas/workorder.schema.json",
+    "lib/wdd/validator.py"
+  ]
+}

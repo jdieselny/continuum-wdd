@@ -1,6 +1,7 @@
 import os
 import json
 import jsonschema
+from datetime import datetime, timezone
 
 def validate_all():
     directories = ["mailbox", "workorders"]
@@ -38,6 +39,20 @@ def validate_all():
                             schema_data = json.load(sf)
                             
                         jsonschema.validate(instance=data, schema=schema_data)
+                        
+                        if "expires_at" in data:
+                            expires_at_str = data["expires_at"]
+                            try:
+                                expires_at_dt = datetime.fromisoformat(expires_at_str.replace("Z", "+00:00"))
+                                if expires_at_dt < datetime.now(timezone.utc):
+                                    print(f"FAIL: Workorder expired {file_path}: {expires_at_str}")
+                                    all_valid = False
+                                    continue
+                            except ValueError as e:
+                                print(f"FAIL: Invalid expiry format in {file_path}: {e}")
+                                all_valid = False
+                                continue
+
                         print(f"PASS: {file_path}")
                     except json.JSONDecodeError as e:
                         print(f"FAIL: Malformed JSON in {file_path}: {e}")

@@ -1,0 +1,8 @@
+{
+  "workorder_id": "wo-020-dead-letter",
+  "status": "OPEN",
+  "agent": "agent:grok-46-build-tui.jdieselny.com",
+  "files_written": [
+    "lib/wdd/mailbox.py"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "OPEN",
+  "receipt_id": "receipt_wo-022-wdd-replay",
+  "files_written": [
+    "lib/wdd/cli.py",
+    "lib/wdd/replay.py"
+  ],
+  "agent_id": "agent:codex.jdieselny.com",
+  "workorder_id": "wo-022-wdd-replay"
+}

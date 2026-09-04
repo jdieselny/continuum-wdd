@@ -1,0 +1,11 @@
+{
+  "status": "OPEN",
+  "receipt_id": "receipt_wo-023-benchmark-rubric",
+  "files_written": [
+    "tests/rubric.json",
+    "lib/wdd/replay.py",
+    "lib/wdd/cli.py"
+  ],
+  "agent_id": "agent:codex.jdieselny.com",
+  "workorder_id": "wo-023-benchmark-rubric"
+}

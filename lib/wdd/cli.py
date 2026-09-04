@@ -8,7 +8,8 @@ def compile_command(args):
     print("WDD Compile: Parsing vomit prompt into OB...")
 
 def replay_command(args):
-    print("WDD Replay: Replaying ledger entries...")
+    from wdd.replay import replay_ledger
+    replay_ledger(benchmark=args.benchmark)
 
 def sweep_command(args):
     print("WDD Sweep: Checking outbox for receipts...")
@@ -41,6 +42,7 @@ def main():
     
     # Replay
     p_replay = subparsers.add_parser("replay", help="Replay ledger workorders")
+    p_replay.add_argument("--benchmark", action="store_true", help="Score the run against the benchmark rubric")
     p_replay.set_defaults(func=replay_command)
     
     # Sweep

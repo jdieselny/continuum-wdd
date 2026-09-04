@@ -12,6 +12,9 @@ def replay_command(args):
 
 def sweep_command(args):
     print("WDD Sweep: Checking outbox for receipts...")
+    from wdd.mailbox import MailboxHandler
+    handler = MailboxHandler()
+    handler.sweep_outbox()
 
 def validate_command(args):
     print("WDD Validate: Verifying envelopes against schemas...")

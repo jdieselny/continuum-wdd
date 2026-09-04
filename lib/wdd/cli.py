@@ -15,6 +15,9 @@ def sweep_command(args):
 
 def validate_command(args):
     print("WDD Validate: Verifying envelopes against schemas...")
+    from wdd.validator import validate_all
+    if not validate_all():
+        sys.exit(1)
 
 def keygen_command(args):
     print("WDD Keygen: Generating agent keypairs...")

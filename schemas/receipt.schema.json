@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aib.emilia.ai/schemas/receipt.schema.json",
+  "$id": "https://wdd.jdieselny.com/schemas/receipt.schema.json",
   "title": "A:iB / EMILIA Consequence Receipt Schema (EP-RECEIPT-v1)",
   "description": "Cryptographic, tamper-proof proof of consequence and gate admission issued through the EMILIA Gate.",
   "type": "object",

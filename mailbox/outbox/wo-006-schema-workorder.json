@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-006-schema-workorder",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:35:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "contract.schema.workorder",
+  "priority": "HIGH",
+  "grid_squares": ["A-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Refine Workorder Schema",
+  "status": "OPEN",
+  "description": "Refine `schemas/workorder.schema.json` to include token projection fields and strict definitions for dependencies. This schema is the absolute contract for the WDD relay.",
+  "dependencies": ["wo-008-packaging"],
+  "deliverables": ["schemas/workorder.schema.json"],
+  "requirements": {
+    "token_projection": "Add `token_projection` (integer, optional) to estimate execution cost.",
+    "dependencies": "Promote `dependencies` (array of strings) to a required property."
+  },
+  "acceptance_criteria": ["The schema passes JSON draft-07 validation."],
+  "failure_modes": ["FAIL: Adding fields that break backward compatibility without a version bump."]
+}

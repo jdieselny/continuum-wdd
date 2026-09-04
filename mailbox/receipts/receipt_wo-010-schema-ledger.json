@@ -1,0 +1,11 @@
+{
+  "receipt_id": "receipt_wo-010-schema-ledger",
+  "workorder_id": "wo-010-schema-ledger",
+  "agent_id": "agent:codex.jdieselny.com",
+  "timestamp": "2026-09-04T13:34:46-04:00",
+  "status": "OPEN",
+  "files_written": [
+    "schemas/ledger.schema.json",
+    "mailbox/receipts/receipt_wo-010-schema-ledger.json"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://wdd.jdieselny.com/schemas/ledger.schema.json",
+  "title": "Ledger Entry",
+  "description": "Hash-chained append-only journal entry",
+  "type": "object",
+  "properties": {
+    "previous_hash": {
+      "type": "string",
+      "description": "Cryptographic hash of the previous ledger entry",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "current_hash": {
+      "type": "string",
+      "description": "Cryptographic hash of the current ledger entry",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "workorder_id": {
+      "type": "string",
+      "description": "ID of the executed workorder"
+    },
+    "receipt_id": {
+      "type": "string",
+      "description": "ID of the corresponding receipt"
+    }
+  },
+  "required": [
+    "previous_hash",
+    "current_hash",
+    "workorder_id",
+    "receipt_id"
+  ]
+}

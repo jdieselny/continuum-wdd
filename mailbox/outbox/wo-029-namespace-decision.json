@@ -1,0 +1,28 @@
+{
+  "$schema": "../../schemas/workorder.schema.json",
+  "workorder_id": "wo-029-namespace-decision",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:42:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:codex.jdieselny.com",
+  "action": "contract.schema.namespace",
+  "priority": "HIGH",
+  "grid_squares": ["A-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Namespace Canonicalization",
+  "status": "OPEN",
+  "description": "Reconcile `$id` host in all schemas. Change `https://aib.emilia.ai/schemas/...` to `https://wdd.jdieselny.com/schemas/...` as per the Opus audit finding F-11.",
+  "dependencies": ["wo-006-schema-workorder"],
+  "deliverables": [
+    "schemas/workorder.schema.json",
+    "schemas/receipt.schema.json",
+    "schemas/ledger.schema.json",
+    "schemas/telemetry.schema.json",
+    "schemas/agent.schema.json"
+  ],
+  "requirements": {
+    "replace": "Global replace of the old URI namespace with the new sovereign namespace."
+  },
+  "acceptance_criteria": ["All schemas correctly declare the new URI."],
+  "failure_modes": ["FAIL: Missing a schema or breaking the `$schema` references."]
+}

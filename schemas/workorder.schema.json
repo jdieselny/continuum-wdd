@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aib.emilia.ai/schemas/workorder.schema.json",
+  "$id": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
   "title": "A:iB Workorder Schema",
   "description": "Deterministic, leased task execution envelope for hybrid human and autonomous agent fleets.",
   "type": "object",
@@ -12,7 +12,9 @@
     "assigned_to",
     "action",
     "title",
-    "acceptance_criteria"
+    "status",
+    "acceptance_criteria",
+    "dependencies"
   ],
   "properties": {
     "$schema": { "type": "string" },
@@ -61,6 +63,11 @@
       "maxLength": 200,
       "description": "Human and machine-readable headline."
     },
+    "status": {
+      "type": "string",
+      "enum": ["OPEN", "LEASED", "BLOCKED", "DONE", "SEALED", "FAILED", "CANCELLED"],
+      "description": "Lifecycle state of the workorder."
+    },
     "description": {
       "type": "string",
       "description": "Comprehensive description of task context and objectives."
@@ -99,6 +106,15 @@
       "maximum": 86400,
       "default": 300,
       "description": "Lease duration before lock expires in /mailbox/processing/."
+    },
+    "dependencies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of prerequisite workorder identifiers."
+    },
+    "token_projection": {
+      "type": "integer",
+      "description": "Estimate execution cost."
     }
   },
   "additionalProperties": true

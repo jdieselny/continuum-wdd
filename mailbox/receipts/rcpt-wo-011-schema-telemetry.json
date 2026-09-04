@@ -1,0 +1,7 @@
+{
+  "workorder_id": "wo-011-schema-telemetry",
+  "status": "OPEN",
+  "files_written": [
+    "schemas/telemetry.schema.json"
+  ]
+}

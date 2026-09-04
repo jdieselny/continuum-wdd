@@ -1,0 +1,9 @@
+{
+  "workorder_id": "wo-013-wdd-validate",
+  "agent_id": "agent:codex.jdieselny.com",
+  "status": "OPEN",
+  "files_written": [
+    "lib/wdd/validator.py",
+    "lib/wdd/cli.py"
+  ]
+}

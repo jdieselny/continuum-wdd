@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://wdd.jdieselny.com/schemas/telemetry.schema.json",
+  "title": "Telemetry Event",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "workorder_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "transition": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "timestamp",
+    "workorder_id",
+    "agent_id",
+    "transition"
+  ]
+}

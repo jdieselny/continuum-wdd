@@ -1,0 +1,8 @@
+{
+  "workorder_id": "wo-006-schema-workorder",
+  "status": "SEALED",
+  "agent_id": "agent:codex.jdieselny.com",
+  "files_written": [
+    "schemas/workorder.schema.json"
+  ]
+}

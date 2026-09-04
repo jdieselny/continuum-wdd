@@ -1,0 +1,27 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-016-keygen",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:48:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.crypto.keygen",
+  "priority": "HIGH",
+  "grid_squares": ["F-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Key Management & Trust Store",
+  "status": "OPEN",
+  "description": "Implement the `wdd keygen` command in `lib/wdd/crypto.py`. This generates Ed25519 keypairs and creates the `keys/trusted.json` trust store.",
+  "dependencies": ["wo-008-packaging"],
+  "deliverables": [
+    "lib/wdd/crypto.py",
+    "lib/wdd/cli.py",
+    "keys/.gitkeep"
+  ],
+  "requirements": {
+    "crypto_lib": "Use the standard `hashlib` or `cryptography` Python package to generate Ed25519 keys.",
+    "trust_store": "Initialize `keys/trusted.json`."
+  },
+  "acceptance_criteria": ["Running `python -m wdd keygen` produces a valid public/private keypair and populates the trust store."],
+  "failure_modes": ["FAIL: Storing private keys in the repo without gitignoring them."]
+}

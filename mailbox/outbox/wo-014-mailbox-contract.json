@@ -1,0 +1,29 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-014-mailbox-contract",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:46:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.mailbox.contract",
+  "priority": "HIGH",
+  "grid_squares": ["F-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Mailbox Directory Contract",
+  "status": "OPEN",
+  "description": "Create `processing/` and `failed/` in the mailbox. Add `.gitkeep` files to all mailbox directories so Git tracks them. Define the lease file format in documentation.",
+  "dependencies": ["wo-009-lifecycle"],
+  "deliverables": [
+    "mailbox/processing/.gitkeep",
+    "mailbox/failed/.gitkeep",
+    "mailbox/inbox/.gitkeep",
+    "mailbox/outbox/.gitkeep",
+    "mailbox/receipts/.gitkeep",
+    "mailbox/archive/.gitkeep"
+  ],
+  "requirements": {
+    "gitkeep": "Create `.gitkeep` files in every mailbox directory."
+  },
+  "acceptance_criteria": ["The mailbox directories are tracked by git even when empty."],
+  "failure_modes": ["FAIL: Missing a directory."]
+}

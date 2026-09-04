@@ -1,0 +1,14 @@
+{
+  "workorder_id": "wo-014-mailbox-contract",
+  "agent_id": "agent:grok-46-build-tui.jdieselny.com",
+  "status": "OPEN",
+  "files_written": [
+    "mailbox/processing/.gitkeep",
+    "mailbox/failed/.gitkeep",
+    "mailbox/inbox/.gitkeep",
+    "mailbox/outbox/.gitkeep",
+    "mailbox/receipts/.gitkeep",
+    "mailbox/archive/.gitkeep",
+    "mailbox/receipts/receipt-wo-014.json"
+  ]
+}

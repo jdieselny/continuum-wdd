@@ -1,0 +1,8 @@
+{
+  "workorder_id": "wo-015-signed-inbound",
+  "status": "OPEN",
+  "agent_id": "agent:grok-46-build-tui.jdieselny.com",
+  "files_written": [
+    "schemas/workorder.schema.json"
+  ]
+}

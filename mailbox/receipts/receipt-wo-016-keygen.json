@@ -1,0 +1,10 @@
+{
+  "workorder_id": "wo-016-keygen",
+  "agent_id": "agent:grok-46-build-tui.jdieselny.com",
+  "files_written": [
+    "lib/wdd/crypto.py",
+    "lib/wdd/cli.py",
+    "keys/.gitkeep",
+    "keys/.gitignore"
+  ]
+}

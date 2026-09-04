@@ -9,6 +9,7 @@
     "version",
     "created_at",
     "issuer",
+    "issuer_signature",
     "assigned_to",
     "action",
     "title",
@@ -40,6 +41,16 @@
     "issuer": {
       "type": "string",
       "description": "Cryptographic authority or human principal issuing the workorder."
+    },
+    "issuer_signature": {
+      "type": "object",
+      "required": ["alg", "key_id", "signature_hex"],
+      "properties": {
+        "alg": { "type": "string" },
+        "key_id": { "type": "string" },
+        "signature_hex": { "type": "string" }
+      },
+      "description": "Detached issuer signature block."
     },
     "assigned_to": {
       "type": "string",

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-018-receipt-gate",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:50:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.crypto.receipts",
+  "priority": "HIGH",
+  "grid_squares": ["F-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Receipt Issuance Gate",
+  "status": "OPEN",
+  "description": "Implement the `lib/wdd/gate.py` module. This module takes an executed workorder and generates the cryptographically signed `receipt.json` using the keys from `wo-016`.",
+  "dependencies": ["wo-016-keygen"],
+  "deliverables": [
+    "lib/wdd/gate.py"
+  ],
+  "requirements": {
+    "signing": "Must use the agent's private key to sign the receipt payload."
+  },
+  "acceptance_criteria": ["The generated receipt passes `wdd validate` and signature verification."],
+  "failure_modes": ["FAIL: Issuing a receipt without actually signing the payload."]
+}

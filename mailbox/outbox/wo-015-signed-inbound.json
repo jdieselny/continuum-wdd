@@ -1,0 +1,24 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-015-signed-inbound",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T13:47:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:grok-46-build-tui.jdieselny.com",
+  "action": "trust.mailbox.signatures",
+  "priority": "HIGH",
+  "grid_squares": ["F-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "Signed Inbound Workorders",
+  "status": "OPEN",
+  "description": "Update `workorder.schema.json` to require a detached issuer signature block on inbound envelopes. The WDD engine must reject unsigned envelopes.",
+  "dependencies": ["wo-006-schema-workorder"],
+  "deliverables": [
+    "schemas/workorder.schema.json"
+  ],
+  "requirements": {
+    "signature": "Add `issuer_signature` object to the schema containing `alg`, `key_id`, and `signature_hex`."
+  },
+  "acceptance_criteria": ["The schema validates an envelope with a valid signature block."],
+  "failure_modes": ["FAIL: Forgetting to make the signature block required in enforcing mode."]
+}

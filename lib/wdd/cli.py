@@ -21,6 +21,8 @@ def validate_command(args):
 
 def keygen_command(args):
     print("WDD Keygen: Generating agent keypairs...")
+    from wdd.crypto import generate_keys
+    generate_keys()
 
 def main():
     parser = argparse.ArgumentParser(description="Workorder Driven Development (WDD) CLI")

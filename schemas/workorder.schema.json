@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aib.emilia.ai/schemas/workorder.schema.json",
+  "title": "A:iB Workorder Schema",
+  "description": "Deterministic, leased task execution envelope for hybrid human and autonomous agent fleets.",
+  "type": "object",
+  "required": [
+    "workorder_id",
+    "version",
+    "created_at",
+    "issuer",
+    "assigned_to",
+    "action",
+    "title",
+    "acceptance_criteria"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "workorder_id": {
+      "type": "string",
+      "pattern": "^wo-[a-zA-Z0-9_-]+$",
+      "description": "Unique cryptographic identifier for the workorder."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+      "description": "Semantic version of the workorder contract."
+    },
+    "created_at": {
+      "type": "string",
+      "description": "ISO 8601 creation timestamp."
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["LOW", "NORMAL", "HIGH", "CRITICAL"],
+      "default": "NORMAL"
+    },
+    "issuer": {
+      "type": "string",
+      "description": "Cryptographic authority or human principal issuing the workorder."
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Enrolled agent identifier or pool responsible for execution."
+    },
+    "grid_squares": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]-[0-9]{2}$"
+      },
+      "description": "Hole Map coordinate squares fulfilled by this workorder."
+    },
+    "domain_tag": {
+      "type": "string",
+      "description": "A:iB domain classification tag, e.g. [A:iB | SCHEMA]."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200,
+      "description": "Human and machine-readable headline."
+    },
+    "description": {
+      "type": "string",
+      "description": "Comprehensive description of task context and objectives."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief executive summary."
+    },
+    "action": {
+      "type": "string",
+      "description": "Deterministic action verb or command name."
+    },
+    "deliverables": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of expected artifact paths on disk."
+    },
+    "requirements": {
+      "type": "object",
+      "description": "Machine-readable execution constraints."
+    },
+    "acceptance_criteria": {
+      "oneOf": [
+        { "type": "string", "minLength": 5 },
+        { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      ],
+      "description": "Falsifiable criteria that must be 100% verified before completion."
+    },
+    "payload": {
+      "type": "object",
+      "description": "Optional arbitrary JSON parameters passed to the executor."
+    },
+    "lease_timeout_sec": {
+      "type": "integer",
+      "minimum": 10,
+      "maximum": 86400,
+      "default": 300,
+      "description": "Lease duration before lock expires in /mailbox/processing/."
+    }
+  },
+  "additionalProperties": true
+}

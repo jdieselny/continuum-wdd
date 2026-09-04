@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aib.emilia.ai/schemas/receipt.schema.json",
+  "title": "A:iB / EMILIA Consequence Receipt Schema (EP-RECEIPT-v1)",
+  "description": "Cryptographic, tamper-proof proof of consequence and gate admission issued through the EMILIA Gate.",
+  "type": "object",
+  "required": [
+    "receipt_id",
+    "version",
+    "issued_at",
+    "workorder_id",
+    "evaluator",
+    "policy_outcome",
+    "admitted_action",
+    "evidence_digest_sha256",
+    "signature"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^rcpt-[a-zA-Z0-9_-]+$",
+      "description": "Unique cryptographic identifier for the receipt."
+    },
+    "version": {
+      "type": "string",
+      "enum": ["EP-RECEIPT-v1.0", "EP-RECEIPT-v1", "1.0.0"],
+      "default": "EP-RECEIPT-v1.0"
+    },
+    "issued_at": {
+      "type": "string",
+      "description": "ISO 8601 issuance timestamp."
+    },
+    "workorder_id": {
+      "type": "string",
+      "description": "Referenced workorder ID."
+    },
+    "evaluator": {
+      "type": "string",
+      "description": "Authority issuing the receipt (e.g. emilia_gate_v1, principal_operator)."
+    },
+    "policy_outcome": {
+      "type": "string",
+      "enum": ["ACCEPTED", "PARTIAL", "REFUSED", "INDETERMINATE"]
+    },
+    "admitted_action": {
+      "type": "string",
+      "description": "The exact action authorized or sealed."
+    },
+    "evidence_digest_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$",
+      "description": "SHA-256 hash of the delivered work or evidence payload."
+    },
+    "transport_digest": {
+      "type": "string",
+      "description": "Optional FPGA/Kloch transport layer event digest."
+    },
+    "signature": {
+      "type": "object",
+      "required": ["key_id", "alg", "sig_b64"],
+      "properties": {
+        "key_id": { "type": "string" },
+        "alg": { "type": "string", "enum": ["Ed25519", "ML-DSA-65", "Hybrid-PQC"] },
+        "sig_b64": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": true
+}

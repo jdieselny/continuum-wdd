@@ -1,0 +1,25 @@
+{
+  "$schema": "https://wdd.jdieselny.com/schemas/workorder.schema.json",
+  "workorder_id": "wo-001-cli-init",
+  "version": "1.0.0",
+  "created_at": "2026-09-04T14:39:00Z",
+  "issuer": "principal_agent_smith",
+  "assigned_to": "agent:opus.jdieselny.com",
+  "action": "cli.engine.init",
+  "priority": "HIGH",
+  "grid_squares": ["B-01"],
+  "domain_tag": "[Continuum | WDD]",
+  "title": "WDD Init Command",
+  "status": "OPEN",
+  "description": "Implement the `wdd init` command in `lib/wdd/cli.py`. This wire up the Compiler, takes the raw prompt string, generates the directories, and spits out the envelopes into the inbox.",
+  "dependencies": ["wo-002-intent-processor", "wo-025-topological-scheduler", "wo-024-holemap-sync"],
+  "deliverables": [
+    "lib/wdd/cli.py"
+  ],
+  "requirements": {
+    "scaffold": "Must generate the `mailbox/` structure.",
+    "compile": "Must invoke the `BlueprintEngine` to run the 3-pass fan-out."
+  },
+  "acceptance_criteria": ["`wdd init 'I want to build a trinket shop'` successfully generates a new WDD project tree."],
+  "failure_modes": ["FAIL: Forgetting to generate `.gitkeep` locks."]
+}

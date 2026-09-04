@@ -1,0 +1,9 @@
+{
+  "workorder_id": "wo-001-cli-init",
+  "status": "OPEN",
+  "files_written": [
+    "lib/wdd/cli.py"
+  ],
+  "agent_id": "agent:opus.jdieselny.com",
+  "state": "STUB"
+}

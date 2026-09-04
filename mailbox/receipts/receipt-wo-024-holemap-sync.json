@@ -1,0 +1,9 @@
+{
+  "workorder_id": "wo-024-holemap-sync",
+  "agent_id": "agent:opus.jdieselny.com",
+  "files_written": [
+    "lib/wdd/sync.py"
+  ],
+  "status": "OPEN",
+  "timestamp": "2026-09-04T14:38:00Z"
+}

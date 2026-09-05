@@ -180,9 +180,18 @@ def validate_all(include_ledger: bool = True) -> bool:
                     continue
 
                 errors: list[str] = []
-                if "receipt" in file or root.replace("\\", "/").endswith("receipts"):
+                norm_root = root.replace("\\", "/")
+                # Result envelopes / non-WO artifacts must not be treated as signed workorders.
+                if file.endswith(".result.json") or file.endswith(".receipt.json"):
+                    errors = _schema_validate_file(file_path)
+                elif "receipt" in file or norm_root.endswith("receipts"):
                     errors = _verify_receipt_file(file_path)
-                elif file.startswith("wo-") or "workorder" in root.replace("\\", "/"):
+                elif (
+                    file.startswith("wo-")
+                    and file.endswith(".json")
+                    and ("archive" in norm_root or "inbox" in norm_root or "outbox" in norm_root
+                         or "workorder" in norm_root)
+                ):
                     errors = _verify_workorder_file(file_path)
                 else:
                     errors = _schema_validate_file(file_path)

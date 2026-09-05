@@ -13,7 +13,7 @@
   "domain_tag": "[Continuum | WDD]",
   "title": "The Genesis Seal",
   "status": "SEALED",
-  "description": "The system has successfully bootstrapped itself. This workorder binds the exact git tree SHA f5b4e1db54c865d9575897e4bc3ec5d3020e9145 and the result manifest; evidence digest 45ac878850f47285263c93a91133bec8a2f45ee79f6d0a7573334871aa3177fc must match the EP-RECEIPT.",
+  "description": "The system has successfully bootstrapped itself. This workorder binds the exact git tree SHA 50b97cb61940519cb9b90d6468896e1ec55628e2 and the result manifest; evidence digest 79b39a6786f68dac798a8e009bc77bdaab22f8e48ad89e285b2e753760f4fb1a must match the EP-RECEIPT.",
   "dependencies": [
     "wo-003-ob-writer"
   ],
@@ -31,7 +31,7 @@
   ],
   "nonce": "398e0fa9efaa08ea",
   "expires_at": "2027-09-04T21:11:18.241754Z",
-  "tree_sha": "f5b4e1db54c865d9575897e4bc3ec5d3020e9145",
+  "tree_sha": "50b97cb61940519cb9b90d6468896e1ec55628e2",
   "result_manifest": {
     "docs/GENESIS_SEAL.md": "74eeea6c78620409402b2021973548f1f2d2fbdeafe89e0ff496f740e6ba3a39",
     "docs/HOLEMAP.md": "5d99bd1e9d8d070be73c6d5c81ed276d1643bea3c136dbd47566a728af57ea3f",
@@ -46,10 +46,10 @@
     "README.md": "474fe496d97b003954a80da6201ab9fd4db4f866cee2c1dcad06ce913313a3d9"
   },
   "result_manifest_digest": "cc5571e92cded3c4fbd48de538ca96a64e0cd7cb574c03f0e35261fdbbfc111b",
-  "seal_evidence_digest": "45ac878850f47285263c93a91133bec8a2f45ee79f6d0a7573334871aa3177fc",
+  "seal_evidence_digest": "79b39a6786f68dac798a8e009bc77bdaab22f8e48ad89e285b2e753760f4fb1a",
   "issuer_signature": {
     "key_id": "principal_agent_smith",
     "alg": "Ed25519",
-    "signature_hex": "0464497e3e8679e1239a86d74c9b3107b78cc50a2434f49798a9aa4a93fa67b73f846f1b14eadb12823837e93fbc6fed19e4c9bc52179a0e023eebec4df0dd03"
+    "signature_hex": "00b48f85b336a7ead651f3b8a5c6e92a52eff69aa53dc03c7be4c4ba2c8a0eece58a1785a9fedf54f66137cd1d2fc1ec5d336d839f8d9c17197d71ae3ad63d05"
   }
 }

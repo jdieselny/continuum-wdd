@@ -7,11 +7,11 @@
   "evaluator": "agent:smith.jdieselny.com",
   "policy_outcome": "ACCEPTED",
   "admitted_action": "system.seal",
-  "evidence_digest_sha256": "45ac878850f47285263c93a91133bec8a2f45ee79f6d0a7573334871aa3177fc",
+  "evidence_digest_sha256": "79b39a6786f68dac798a8e009bc77bdaab22f8e48ad89e285b2e753760f4fb1a",
   "token_burn": 0,
   "signature": {
     "key_id": "agent_key",
     "alg": "Ed25519",
-    "sig_b64": "sc29AebVNbtd4ymSvE5uHjs94mxCfHbCM1y+tcDNFgSUmJQIj+s0yQBVMQ+kTsy0zzEsLHk6R+PcqjPW24aVBw=="
+    "sig_b64": "+NBRiQzIE1LztTT4jgN/LJkoYOnhn66JK0Qms6UDENW/px2eiNMRXR7ydr635Zg/4BlfWPToalgWUq+eYGnbDw=="
   }
 }

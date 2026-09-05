@@ -1,9 +1,0 @@
-{
-  "current_hash": "2c3a5839f46c05b328d209cf7a69ccf2a964cf829b5e6f5e21bb9b378e17b174",
-  "previous_hash": "93cae2fbf9406c7795dad31016fcf231dc85ae32fae0115b9c85ef34f918035d",
-  "receipt_digest": "a14893479c233bf8674507d134d1cae57983333351514d5c8bbdf5cb77193fc4",
-  "receipt_id": "rcpt-wo-032-genesis-seal",
-  "token_burn": 0,
-  "workorder_digest": "0bd8fb58c8380b697bd4cb327a23900fb8b186439415a8abd4478fc6cec543aa",
-  "workorder_id": "wo-032-genesis-seal"
-}

@@ -10,14 +10,12 @@ from typing import Any
 
 import jsonschema
 
+from wdd.canonical import ledger_hash_payload
 from wdd.gate import (
-    receipt_digest,
     verify_receipt_signature,
     verify_workorder_signature,
-    workorder_digest,
 )
 from wdd.ledger import get_hash_of_dict
-from wdd.canonical import ledger_hash_payload
 from wdd.replay import ReplayError, replay_ledger
 
 
@@ -26,14 +24,16 @@ def _load_schema(schema_ref: str, file_path: str) -> dict[str, Any] | None:
         schema_filename = schema_ref.split("/")[-1]
         schema_path = os.path.join("schemas", schema_filename)
     else:
-        schema_path = os.path.normpath(os.path.join(os.path.dirname(file_path), schema_ref))
+        schema_path = os.path.normpath(
+            os.path.join(os.path.dirname(file_path), schema_ref)
+        )
     if not os.path.exists(schema_path):
         return None
     with open(schema_path, "r", encoding="utf-8") as sf:
         return json.load(sf)
 
 
-def _schema_validate_file(file_path: str) -> list[str]:
+def _schema_validate_file(file_path: str, *, require_schema: bool = True) -> list[str]:
     errors: list[str] = []
     try:
         with open(file_path, "r", encoding="utf-8") as f:
@@ -42,6 +42,8 @@ def _schema_validate_file(file_path: str) -> list[str]:
         return [f"Malformed JSON in {file_path}: {e}"]
 
     if "$schema" not in data:
+        if require_schema:
+            return [f"Missing required $schema in {file_path}"]
         return []
 
     schema_data = _load_schema(data["$schema"], file_path)
@@ -67,7 +69,7 @@ def _schema_validate_file(file_path: str) -> list[str]:
 
 
 def _verify_workorder_file(file_path: str) -> list[str]:
-    errors = _schema_validate_file(file_path)
+    errors = _schema_validate_file(file_path, require_schema=True)
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -85,7 +87,7 @@ def _verify_workorder_file(file_path: str) -> list[str]:
 
 
 def _verify_receipt_file(file_path: str) -> list[str]:
-    errors = _schema_validate_file(file_path)
+    errors = _schema_validate_file(file_path, require_schema=True)
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -121,6 +123,22 @@ def _verify_receipt_file(file_path: str) -> list[str]:
     return errors
 
 
+def _classify_envelope(file_path: str, data: dict[str, Any]) -> str:
+    """Content-based dispatch (not filename-based)."""
+    name = os.path.basename(file_path)
+    if name.endswith(".result.json"):
+        return "result"
+    if data.get("receipt_id") or "signature" in data and "evidence_digest_sha256" in data:
+        return "receipt"
+    if data.get("workorder_id") and (
+        "issuer_signature" in data or "action" in data or "assigned_to" in data
+    ):
+        return "workorder"
+    if data.get("receipt_id"):
+        return "receipt"
+    return "other"
+
+
 def _verify_ledger_dir(ledger_dir: str = "ledger") -> list[str]:
     """Strict ledger verification — never schema-only."""
     errors: list[str] = []
@@ -128,7 +146,6 @@ def _verify_ledger_dir(ledger_dir: str = "ledger") -> list[str]:
     if not path.exists():
         return errors
 
-    # Schema-validate each entry first
     for entry_path in sorted(path.glob("*.json")):
         try:
             with open(entry_path, "r", encoding="utf-8") as f:
@@ -154,11 +171,13 @@ def _verify_ledger_dir(ledger_dir: str = "ledger") -> list[str]:
             if field not in data:
                 errors.append(f"Ledger entry {entry_path.name} missing {field}")
 
-    # Execute full replay verifiers (receipts required, digests must match)
     try:
         replay_ledger(benchmark=True, ledger_dir=ledger_dir)
     except ReplayError as e:
         errors.append(f"Ledger replay/verifier failed: {e}")
+    except ValueError as e:
+        # Signature failures must be clean FAIL lines, not tracebacks (Claude F-6).
+        errors.append(f"Ledger verifier failed: {e}")
 
     return errors
 
@@ -175,26 +194,25 @@ def validate_all(include_ledger: bool = True) -> bool:
                 if not file.endswith(".json"):
                     continue
                 file_path = os.path.join(root, file)
-                # Skip non-envelope JSON blobs
-                if file == "trusted.json":
+                if file in ("trusted.json",):
                     continue
 
-                errors: list[str] = []
-                norm_root = root.replace("\\", "/")
-                # Result envelopes / non-WO artifacts must not be treated as signed workorders.
-                if file.endswith(".result.json") or file.endswith(".receipt.json"):
-                    errors = _schema_validate_file(file_path)
-                elif "receipt" in file or norm_root.endswith("receipts"):
+                try:
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                except json.JSONDecodeError as e:
+                    print(f"FAIL: Malformed JSON in {file_path}: {e}")
+                    all_valid = False
+                    continue
+
+                kind = _classify_envelope(file_path, data)
+                if kind == "receipt":
                     errors = _verify_receipt_file(file_path)
-                elif (
-                    file.startswith("wo-")
-                    and file.endswith(".json")
-                    and ("archive" in norm_root or "inbox" in norm_root or "outbox" in norm_root
-                         or "workorder" in norm_root)
-                ):
+                elif kind == "workorder":
                     errors = _verify_workorder_file(file_path)
                 else:
-                    errors = _schema_validate_file(file_path)
+                    # result / other — still fail closed without $schema
+                    errors = _schema_validate_file(file_path, require_schema=True)
 
                 if errors:
                     all_valid = False

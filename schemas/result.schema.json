@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://wdd.jdieselny.com/schemas/result.schema.json",
+  "title": "Workorder Result Envelope",
+  "description": "Self-attested or runner-emitted result artifact (not an EP-RECEIPT)",
+  "type": "object",
+  "required": ["workorder_id", "status", "outcome"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "workorder_id": { "type": "string" },
+    "version": { "type": "string" },
+    "completed_at": { "type": "string" },
+    "executed_by": { "type": "string" },
+    "status": { "type": "string" },
+    "outcome": { "type": "string" },
+    "summary": { "type": "string" }
+  },
+  "additionalProperties": true
+}

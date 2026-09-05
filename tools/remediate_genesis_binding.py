@@ -83,7 +83,7 @@ def load_json(path: Path) -> dict:
 
 
 def build_result_manifest() -> dict[str, str]:
-    """Digest map for the Genesis Seal deliverables and core contracts."""
+    """Digest map for seal deliverables, contracts, and verifier source (lib/)."""
     import hashlib
 
     paths = [
@@ -94,11 +94,18 @@ def build_result_manifest() -> dict[str, str]:
         "schemas/workorder.schema.json",
         "schemas/receipt.schema.json",
         "schemas/ledger.schema.json",
+        "schemas/result.schema.json",
         "keys/trust_registry.v1.json",
         "tests/rubric.json",
         "pyproject.toml",
         "README.md",
     ]
+    # Bind the verifier to itself — tampering lib/ must break the seal (Claude F-3).
+    lib_dir = ROOT / "lib" / "wdd"
+    if lib_dir.is_dir():
+        for py in sorted(lib_dir.glob("*.py")):
+            paths.append(f"lib/wdd/{py.name}")
+
     manifest: dict[str, str] = {}
     for rel in paths:
         path = ROOT / rel

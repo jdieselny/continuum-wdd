@@ -59,17 +59,21 @@ def save_trust_registry(registry: dict[str, Any], path: str = TRUST_REGISTRY_PAT
     with open(path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(registry, f, indent=2, sort_keys=True)
         f.write("\n")
-    _write_compat_trusted(registry)
+    # Compat shim lives beside the registry (never a hardcoded cwd-relative path).
+    compat = os.path.join(os.path.dirname(path) or ".", "trusted.json")
+    _write_compat_trusted(registry, compat_path=compat)
 
 
-def _write_compat_trusted(registry: dict[str, Any]) -> None:
-    """Write keys/trusted.json ACTIVE-only map for legacy readers."""
+def _write_compat_trusted(
+    registry: dict[str, Any], compat_path: str = TRUST_STORE
+) -> None:
+    """Write trusted.json ACTIVE-only map for legacy readers."""
     active = {
         key_id: meta["public_key_pem"]
         for key_id, meta in registry.get("keys", {}).items()
         if meta.get("status") == "ACTIVE"
     }
-    with open(TRUST_STORE, "w", encoding="utf-8", newline="\n") as f:
+    with open(compat_path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(active, f, indent=2, sort_keys=True)
         f.write("\n")
 

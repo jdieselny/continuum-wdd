@@ -79,6 +79,12 @@ def keygen_command(args):
     from wdd.crypto import generate_keys
     generate_keys()
 
+def verify_seal_command(args):
+    print("WDD Verify-Seal: Verifying Genesis attestation...")
+    from wdd.seal import verify_seal
+    if not verify_seal():
+        sys.exit(1)
+
 def main():
     parser = argparse.ArgumentParser(description="Workorder Driven Development (WDD) CLI")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -108,6 +114,10 @@ def main():
     # Keygen
     p_keygen = subparsers.add_parser("keygen", help="Generate Ed25519 agent keys")
     p_keygen.set_defaults(func=keygen_command)
+
+    # Verify Seal
+    p_verify = subparsers.add_parser("verify-seal", help="Verify Genesis seal manifest against git tree")
+    p_verify.set_defaults(func=verify_seal_command)
     
     args = parser.parse_args()
     args.func(args)

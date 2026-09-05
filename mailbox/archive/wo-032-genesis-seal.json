@@ -13,7 +13,7 @@
   "domain_tag": "[Continuum | WDD]",
   "title": "The Genesis Seal",
   "status": "SEALED",
-  "description": "The system has successfully bootstrapped itself. This workorder binds the exact git tree SHA 50b97cb61940519cb9b90d6468896e1ec55628e2 and the result manifest; evidence digest 79b39a6786f68dac798a8e009bc77bdaab22f8e48ad89e285b2e753760f4fb1a must match the EP-RECEIPT.",
+  "description": "The system has successfully bootstrapped itself. This workorder binds the exact git tree SHA c44e72bae9e9a23824acc2f68798b851b7de49b4 and the result manifest; evidence digest 2892249f256048eef935a31cecc5d61a5acd70c7a802cd1864dffc1a44b1afcf must match the EP-RECEIPT.",
   "dependencies": [
     "wo-003-ob-writer"
   ],
@@ -31,25 +31,41 @@
   ],
   "nonce": "398e0fa9efaa08ea",
   "expires_at": "2027-09-04T21:11:18.241754Z",
-  "tree_sha": "50b97cb61940519cb9b90d6468896e1ec55628e2",
+  "tree_sha": "c44e72bae9e9a23824acc2f68798b851b7de49b4",
   "result_manifest": {
-    "docs/GENESIS_SEAL.md": "74eeea6c78620409402b2021973548f1f2d2fbdeafe89e0ff496f740e6ba3a39",
+    "docs/GENESIS_SEAL.md": "54108f86fe30d70726467de45c58e2e2f2e3791229c44d1e5d7258030432341f",
     "docs/HOLEMAP.md": "5d99bd1e9d8d070be73c6d5c81ed276d1643bea3c136dbd47566a728af57ea3f",
     "docs/AUDIT_REPORT.md": "88f0ca0f466f7f7996db510de8739928bb303292b13c3d5c3f8c2a580dda1d74",
     "docs/INTENT.md": "e4a62755ee0be39fac055deda62dacdbe9a517b2463a3cc3d7da73f4d63e5325",
     "schemas/workorder.schema.json": "40bfb38cb0588e6931c2f39a0ea16e3decf543ba0ba2b1c11e78ab094cb45fd7",
     "schemas/receipt.schema.json": "466d0ca18a238527f2fb1b588db5d8e2f858b7d7f36354fcc609fc84b51ddc67",
     "schemas/ledger.schema.json": "fc48bd1bfe701eee221a67843ddde5f9a39cd4562f76c4d03e187bebb153281f",
+    "schemas/result.schema.json": "e1f95766b4c156a20f7195a8c05b95f338ace155ce9eed75f6d0754874832b6c",
     "keys/trust_registry.v1.json": "edcd640f564b4f264be157918c4936caaf5b87eb1bd6b6a932f8cb79a8298f83",
     "tests/rubric.json": "e81e9c4a15b9a41fa21ecbd32c64a14a826700219bdd9a4bb76b3461882da390",
     "pyproject.toml": "7e18937515c31e2d0e6c1c4af4ed61e5af8c286700913247f8ee9c30241c6c50",
-    "README.md": "474fe496d97b003954a80da6201ab9fd4db4f866cee2c1dcad06ce913313a3d9"
+    "README.md": "474fe496d97b003954a80da6201ab9fd4db4f866cee2c1dcad06ce913313a3d9",
+    "lib/wdd/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/wdd/__main__.py": "9b2623e076a8ad838cd9812068564439912d770e0d082402625c5eb7a79cfea3",
+    "lib/wdd/canonical.py": "05ab3e4befb2ed03123b7c455d393ab692d4ff13f892c259ee4430bb03b4ad0e",
+    "lib/wdd/cli.py": "dc50e6e9c3b157d79aa996f4ae2e260cd5d6b7b083059ad72b186ff8a6046b28",
+    "lib/wdd/compiler.py": "f9e23b42016bae4d581f4f53462022c9e90e501ab372e5a3eab1c68ae080e744",
+    "lib/wdd/crypto.py": "c495af791f7e45aed447b554f752e7b15b38be7254f51a3c5be7ea328e4aa248",
+    "lib/wdd/gate.py": "61ffc16aaa443ac1397b6e27893e00f9c7107afcb02612f56d8de06703b0348e",
+    "lib/wdd/ledger.py": "9de86f3575df28f5864298762021b02f5e5265c3b69634c6d10a072a73959096",
+    "lib/wdd/mailbox.py": "49165d71061c3f08b2d49f3d5cdef5c63075b1128d34b58e518e2f59a5e7973b",
+    "lib/wdd/registry.py": "ff6d549149cdc43e0366264f92a5d25b21aa10e9f13f2fcc7e54f1f352ec9926",
+    "lib/wdd/replay.py": "f4702ff70e6245c89f92397a437e805a60e7727cebc66a246ed3edad13fd14c4",
+    "lib/wdd/scheduler.py": "0a4c0d50c16fbd3898040441c8a5861441e76313f6640bc9883cd6d878a0a45f",
+    "lib/wdd/sync.py": "16cfc0633ab95a9003a6c0ba92da1c5c4690e066bdcd3aa7e037a830730b47af",
+    "lib/wdd/telemetry.py": "4cb11aea4b077fb0e914e7953957fab2b48868e2cc69cc9765a54ac735025b67",
+    "lib/wdd/validator.py": "dbf0ef42b3c56528cc6524d90ac67d93b0bb407185a9bd5a8f4c906359374375"
   },
-  "result_manifest_digest": "cc5571e92cded3c4fbd48de538ca96a64e0cd7cb574c03f0e35261fdbbfc111b",
-  "seal_evidence_digest": "79b39a6786f68dac798a8e009bc77bdaab22f8e48ad89e285b2e753760f4fb1a",
+  "result_manifest_digest": "677136c88b49f2a4e547e91778ac8b078c55f3745dc663a4eb5a45859a394fae",
+  "seal_evidence_digest": "2892249f256048eef935a31cecc5d61a5acd70c7a802cd1864dffc1a44b1afcf",
   "issuer_signature": {
     "key_id": "principal_agent_smith",
     "alg": "Ed25519",
-    "signature_hex": "00b48f85b336a7ead651f3b8a5c6e92a52eff69aa53dc03c7be4c4ba2c8a0eece58a1785a9fedf54f66137cd1d2fc1ec5d336d839f8d9c17197d71ae3ad63d05"
+    "signature_hex": "a7e5ae2de70b293ea0815ef2b20941ecfe84523cb7bd452a269fa03bd8403dda2a8079ca28be7fa622a4b75e0fe448a2e8455fb215b00e6a34ffef69d2221303"
   }
 }

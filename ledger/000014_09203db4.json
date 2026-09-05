@@ -1,0 +1,9 @@
+{
+  "current_hash": "09203db4806b0967efb9586f3bc772c55dea951db79d021cf05b9f191ceeeff1",
+  "previous_hash": "239b431af87acef303fb536889338b0bc5a4e088895e3f6896d1477c526cb0a3",
+  "receipt_digest": "0095c76413b94b9a2e41dd30dc2b4a7fe5f36c83cc0663601ec20d7c9d319d1f",
+  "receipt_id": "rcpt-wo-014-mailbox-contract",
+  "token_burn": 0,
+  "workorder_digest": "794a958627cbc4a02b29a26862e30c6ef372ba0f7a1fc3c9b05ed1a08cf824ea",
+  "workorder_id": "wo-014-mailbox-contract"
+}

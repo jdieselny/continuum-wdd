@@ -1,0 +1,6 @@
+# Keep ledger/receipt/workorder bytes stable across checkouts.
+*.json text eol=lf
+*.pem text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+*.py text eol=lf

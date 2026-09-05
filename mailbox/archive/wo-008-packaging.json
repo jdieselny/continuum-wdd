@@ -35,9 +35,10 @@
   ],
   "nonce": "f27d7ed819f85062",
   "expires_at": "2027-09-04T21:11:18.249529Z",
+  "token_projection": 0,
   "issuer_signature": {
     "key_id": "principal_agent_smith",
     "alg": "Ed25519",
-    "signature_hex": "65169b667c67894774ef473b79dace83127294d94fe637a38c185c7dd0c9997102823e33dace2244fe0b9c8bf0ba5edaa932a1e741e7c2fd398f77790f0d7901"
+    "signature_hex": "b0660f074bbf8e5479915896811bacef760b4083571b3a231340c096a6a44ac889db55b8bfcbe6d4c30828e434b072b9b0dc10e69d0db6bd8d081e7340fb310c"
   }
 }

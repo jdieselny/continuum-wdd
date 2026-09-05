@@ -7,10 +7,11 @@
   "evaluator": "agent:grok-46-build-tui.jdieselny.com",
   "policy_outcome": "ACCEPTED",
   "admitted_action": "trust.sandbox.registry",
-  "evidence_digest_sha256": "8fb0f1cd9c535bc1b1ddd9433c605a36a159441b7fbb53be930b1ef968e77a03",
+  "evidence_digest_sha256": "51bc7595cd4731c0655af23fbfbc028daa0f7e9786eec61716ca93a16942309f",
+  "token_burn": 0,
   "signature": {
     "key_id": "agent_key",
     "alg": "Ed25519",
-    "sig_b64": "9gO+hfLnK/lFZX5SiDKAtCbuhOngOH5mqLqff7nfxcqJ6+QWhJndbIitMiSgOqUqMOSyCczmqXCsMCv/MTFTCQ=="
+    "sig_b64": "T/ADX277GsCWubUXhORmX90pOZ5Gd6rgp/97/UTIqS9JxO19G0SUFhHIsOQpucRrWwpP4CtWeEwz+GLnDVmeCw=="
   }
 }

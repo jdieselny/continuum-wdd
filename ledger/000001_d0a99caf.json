@@ -1,0 +1,9 @@
+{
+  "current_hash": "d0a99caf1b080cd58f0964a7ebc489b06cc5ceb55d86e279f2fd4c58015923a2",
+  "previous_hash": "d03beb5cf1e5d439b5a050c005a3b6b3e29be9eab1b2454bb261ac1e4fb68aa7",
+  "receipt_digest": "9bbeef08a8aec263bda7a2ce0d5e2a6f5133d96bd98b208bb8e7445053bd49c6",
+  "receipt_id": "rcpt-wo-001-cli-init",
+  "token_burn": 0,
+  "workorder_digest": "f2afb449b1362f2e68222873ca9f2e801aa394ecd31906fe3c07bed8428608be",
+  "workorder_id": "wo-001-cli-init"
+}

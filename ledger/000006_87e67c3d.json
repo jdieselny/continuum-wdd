@@ -1,0 +1,9 @@
+{
+  "current_hash": "87e67c3df4f38860e051fd36d57d86dd09692b0512f2e288aa04e300f9e7c6f1",
+  "previous_hash": "8651d5457fb66ed4fc9fbe6180ffcf28ee9c8ec1738bc231fb31ee6ee375d3ac",
+  "receipt_digest": "f49c6c0e231d95bc39732a1c39d39cbbcab5a9fe3e3890b41ed190b8d34ea77a",
+  "receipt_id": "rcpt-wo-006-schema-workorder",
+  "token_burn": 0,
+  "workorder_digest": "5122672afc80bc4866d0ae2f48d4a88d6937c59222e9da73eccff5455585b761",
+  "workorder_id": "wo-006-schema-workorder"
+}

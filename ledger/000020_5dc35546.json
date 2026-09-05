@@ -1,0 +1,9 @@
+{
+  "current_hash": "5dc35546225caf62c486ab291830a9484b36d2cceed7df7db86b2f1b4be5010d",
+  "previous_hash": "9f6958e3b5bc53624c004bccc2801542d2b900396e5fc680b5a81d651d0372d7",
+  "receipt_digest": "ef744bc0984bb46ec4e2948305bd3accf4461b722040a4c2130e8ca3b3c9b767",
+  "receipt_id": "rcpt-wo-020-dead-letter",
+  "token_burn": 0,
+  "workorder_digest": "3bdc7eef016f24665dc879da00a69d0023018b960b9a18a0eb481523bb892e42",
+  "workorder_id": "wo-020-dead-letter"
+}

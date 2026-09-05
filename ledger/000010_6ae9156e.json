@@ -1,0 +1,9 @@
+{
+  "current_hash": "6ae9156e69700447cf62327cf476f2f3d9cd0f77798c7a596055ae27b830a8a6",
+  "previous_hash": "aef545ea6f8cc19aace5cde151b6d6ae3671792bb1d0ae6f96007d76d8abe0c2",
+  "receipt_digest": "634417fc9e1e962c8d23661b70c167ea5f5262b5414b6bbad724bcae3aa973b3",
+  "receipt_id": "rcpt-wo-010-schema-ledger",
+  "token_burn": 0,
+  "workorder_digest": "c8ebd7b14d92364b828cc293d5f3b365ee3c5a521f698447aabdb98ebe36d79b",
+  "workorder_id": "wo-010-schema-ledger"
+}

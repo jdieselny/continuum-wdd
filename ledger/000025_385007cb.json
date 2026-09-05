@@ -1,0 +1,9 @@
+{
+  "current_hash": "385007cb179d5a1d7161e203649acf98bcdd471856c90b8095ef9fc7d9090bb0",
+  "previous_hash": "76c9a461217542d6d80e4cec71a6d56b0ccad7d8d43f0af58cbdd42a84d37008",
+  "receipt_digest": "b9625144bdd5052824f1917f6513bfb1fbed12433842a11d986db1d3c48a9bc9",
+  "receipt_id": "rcpt-wo-025-topological-scheduler",
+  "token_burn": 0,
+  "workorder_digest": "a98f0c9271a872e87cf081af9b6ab62a9acdddbd88d937271e556212c143ed31",
+  "workorder_id": "wo-025-topological-scheduler"
+}

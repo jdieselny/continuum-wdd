@@ -1,0 +1,9 @@
+{
+  "current_hash": "2442461706634b34585b5377414768683bc2ec63da85fae87fe2eeb1302ec6a3",
+  "previous_hash": "d0a99caf1b080cd58f0964a7ebc489b06cc5ceb55d86e279f2fd4c58015923a2",
+  "receipt_digest": "acc0cd353201464ae4262dce0df5b969c7fe3af08dc82cc087132b6345940fc7",
+  "receipt_id": "rcpt-wo-002-intent-processor",
+  "token_burn": 0,
+  "workorder_digest": "759dba18d776b3309de8f0803ee08eb9256ae835c424e14b1c2dd3b46205dadd",
+  "workorder_id": "wo-002-intent-processor"
+}

@@ -1,0 +1,9 @@
+{
+  "current_hash": "d03beb5cf1e5d439b5a050c005a3b6b3e29be9eab1b2454bb261ac1e4fb68aa7",
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "receipt_digest": "a2e62c60683ff5ccf03da20bd332b673cc19e652b56a7d63847b525c026a2f2b",
+  "receipt_id": "rcpt-wo-000-genesis-audit",
+  "token_burn": 0,
+  "workorder_digest": "fc25de9656f7dcdfa024ab30a16eec4ac6303c5425b90ccc48c94e90bd338eda",
+  "workorder_id": "wo-000-genesis-audit"
+}

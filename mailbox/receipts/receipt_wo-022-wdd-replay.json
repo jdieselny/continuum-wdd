@@ -7,10 +7,11 @@
   "evaluator": "agent:codex.jdieselny.com",
   "policy_outcome": "ACCEPTED",
   "admitted_action": "cli.engine.replay",
-  "evidence_digest_sha256": "c16e3ba11c1bcacaa74b1507e49a670e4d470d1e6762a2a06d52dd4508c665a2",
+  "evidence_digest_sha256": "665654da9eedb28fd05b54684a428d4303dbbdf69baa98970a94feef18b2c106",
+  "token_burn": 0,
   "signature": {
     "key_id": "agent_key",
     "alg": "Ed25519",
-    "sig_b64": "k95fn/zUMStfBoSpMjawiup8ZdO+kDkPJu1hiJXXy5Igk3zsITaXEtC8+KlO/qnSVSQSgSZ2Nq6i2aly48pjAA=="
+    "sig_b64": "YXmkvRxra5DHTo8zm/Qw3wrH30VJAUONbJMclO7Q/cUNnWNkRifaoUFzRV2QUFdrePuef/A1LrnthDFKPy4vCQ=="
   }
 }

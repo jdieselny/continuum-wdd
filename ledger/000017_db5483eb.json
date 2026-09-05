@@ -1,0 +1,9 @@
+{
+  "current_hash": "db5483eb44a46cb87fa09e1a42c6a5f71214a488d4d14d88ed1d469d4d2550a0",
+  "previous_hash": "b6497dbe1d34e8462a8506cd129300587699dfa981a9b5f461414781f42f94fe",
+  "receipt_digest": "483e9def25646e51afc25f08adfa1c6537ec254077096409d4a4cebc1d1b0042",
+  "receipt_id": "rcpt-wo-017-action-registry",
+  "token_burn": 0,
+  "workorder_digest": "84919ce136eeaa49f154aaa9a50b1b5259106a84d36eb607e2f65339ad64fffa",
+  "workorder_id": "wo-017-action-registry"
+}

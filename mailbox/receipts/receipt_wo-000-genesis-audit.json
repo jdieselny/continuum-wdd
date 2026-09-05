@@ -4,13 +4,14 @@
   "version": "EP-RECEIPT-v1.0",
   "issued_at": "2026-09-04T21:10:52.877063Z",
   "workorder_id": "wo-000-genesis-audit",
-  "evaluator": "unknown_agent",
+  "evaluator": "agent:opus.jdieselny.com",
   "policy_outcome": "ACCEPTED",
-  "admitted_action": "unknown_action",
-  "evidence_digest_sha256": "97b759f1b0fd94f74939edf95f28b33bc9f6da302f524c4de71eb2ae52dfb171",
+  "admitted_action": "genesis.audit",
+  "evidence_digest_sha256": "d2328956822e7ff1ecdfb0aeff58720eaecf0bc978b5a7463ed4c9e2bdf1700e",
+  "token_burn": 0,
   "signature": {
     "key_id": "agent_key",
     "alg": "Ed25519",
-    "sig_b64": "qwLVrmVtE79IVgYJQe+kdGz6Wa/+lpO2CsR6bynIHII8oeMBFAVa76ld5JcQ0tmvYmpNn1sHGuN9igT/Po3FBw=="
+    "sig_b64": "bs9Pt6umX0aXlfvFxgVtr+53Poz+K+d1V2gA8uCiga/9IL2jCwm1vEGqTBI1n9akVQZOgmJYYCds1GwcRyyHAg=="
   }
 }

@@ -1,0 +1,9 @@
+{
+  "current_hash": "358c2a5e2df413bf49488c6e64541f37bd2f13b2b41f14f28725ab0d16275c3c",
+  "previous_hash": "6ae9156e69700447cf62327cf476f2f3d9cd0f77798c7a596055ae27b830a8a6",
+  "receipt_digest": "02af1192524607bd2bd28868785d89179c748bce87f0bc9b720757e7f6554551",
+  "receipt_id": "rcpt-wo-011-schema-telemetry",
+  "token_burn": 0,
+  "workorder_digest": "af3d3a4b6413581e0af217e0d6661a0743ee54170684e32109a39dffd3db4dd0",
+  "workorder_id": "wo-011-schema-telemetry"
+}

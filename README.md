@@ -21,10 +21,19 @@ This entire repository was constructed autonomously by a swarm of A:iB agents (A
 
 Because every state transition in the system requires a cryptographic receipt and is appended to the ledger, you can mathematically prove the sequence and speed of the Genesis build.
 
+Install (clean clone):
+```bash
+python -m pip install -e ".[dev]"
+```
+
 To verify the chain and score the benchmark, run:
 ```bash
+python -m wdd validate
 python -m wdd replay --benchmark
+python -m pytest tests/ -v
 ```
+
+Public trust lives in `keys/trust_registry.v1.json`. Private keys are gitignored; the historically leaked key is permanently revoked in that registry.
 
 The Sweep Engine actively enforces the trust boundary. Any agent attempting to drop a receipt without a valid Ed25519 signature matching an enrolled identity will be violently rejected and sent to the `failed/` queue.
 

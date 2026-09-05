@@ -1,0 +1,9 @@
+{
+  "current_hash": "2a040cc7d46504263cd0c6eeaab559804715bcdd62e6bbd444dfe61e5bdb7251",
+  "previous_hash": "09203db4806b0967efb9586f3bc772c55dea951db79d021cf05b9f191ceeeff1",
+  "receipt_digest": "b27f0a10b086fa96bbd6d4e45bc63852adfc9c50815a0dc7540dcbc13a901bfd",
+  "receipt_id": "rcpt-wo-015-signed-inbound",
+  "token_burn": 0,
+  "workorder_digest": "f5960a895c751d05a6eae36007ce22f7f95712eb563a5d816d7fcdc1b95f67f7",
+  "workorder_id": "wo-015-signed-inbound"
+}

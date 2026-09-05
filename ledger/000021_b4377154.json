@@ -1,0 +1,9 @@
+{
+  "current_hash": "b43771547be7f4cb5ba591cf0f1f894110c04eb6714c598ac103353c536d8872",
+  "previous_hash": "5dc35546225caf62c486ab291830a9484b36d2cceed7df7db86b2f1b4be5010d",
+  "receipt_digest": "f01253015c175607b95c2c27aef63f0d24fe694c1c86e6471958f872944db9dd",
+  "receipt_id": "rcpt-wo-021-ledger-recorder",
+  "token_burn": 0,
+  "workorder_digest": "72262d36a2228ba1d22d025b5ad23593cdc3df770d2b464146a9e795c6f0a92b",
+  "workorder_id": "wo-021-ledger-recorder"
+}

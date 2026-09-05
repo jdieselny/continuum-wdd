@@ -1,0 +1,9 @@
+{
+  "current_hash": "982cfc90cec6eb5dbe22dc62d364c4713ff6bd107dd7a2d7bbb2fb843e01a5ec",
+  "previous_hash": "db5483eb44a46cb87fa09e1a42c6a5f71214a488d4d14d88ed1d469d4d2550a0",
+  "receipt_digest": "63a07b4b90a19cdaa10bf58f8de894915b90f330d58e4f580eb4d36a34c0ab87",
+  "receipt_id": "rcpt-wo-018-receipt-gate",
+  "token_burn": 0,
+  "workorder_digest": "5cdcdc2ff8cee0f39b3940408eeca018564a58d47294b60a8e68433586489ff7",
+  "workorder_id": "wo-018-receipt-gate"
+}

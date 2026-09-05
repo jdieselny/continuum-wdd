@@ -105,41 +105,11 @@ class MailboxHandler:
                     print(f"Invalid signature for {filename}")
 
     def _verify_receipt(self, receipt):
-        if "signature" not in receipt:
-            return False
-            
-        import base64
-        from cryptography.hazmat.primitives import serialization
-        from cryptography.exceptions import InvalidSignature
-        
-        sig_info = receipt["signature"]
-        key_id = sig_info.get("key_id")
-        sig_b64 = sig_info.get("sig_b64")
-        
-        if not key_id or not sig_b64:
-            return False
-            
-        trust_store_path = "keys/trusted.json"
+        from wdd.gate import verify_receipt_signature
+
         try:
-            with open(trust_store_path, "r") as f:
-                trust_store = json.load(f)
-        except Exception:
-            return False
-            
-        pub_key_pem = trust_store.get(key_id)
-        if not pub_key_pem:
-            return False
-            
-        try:
-            public_key = serialization.load_pem_public_key(pub_key_pem.encode('utf-8'))
-            sig_bytes = base64.b64decode(sig_b64)
-            
-            receipt_copy = dict(receipt)
-            del receipt_copy["signature"]
-            canonical_payload = json.dumps(receipt_copy, sort_keys=True, separators=(',', ':')).encode('utf-8')
-            
-            public_key.verify(sig_bytes, canonical_payload)
+            verify_receipt_signature(receipt)
             return True
-        except Exception:
+        except ValueError:
             return False
 

@@ -1,0 +1,9 @@
+{
+  "current_hash": "8651d5457fb66ed4fc9fbe6180ffcf28ee9c8ec1738bc231fb31ee6ee375d3ac",
+  "previous_hash": "3f894899f3b4881ccbdcc42e86e70aff6eb0dbed1919a8f75ef617b4188d6dd8",
+  "receipt_digest": "e3b74b471b30a8b568a0af2ed407af2167a830d8a06ca81a013b7160d516c340",
+  "receipt_id": "rcpt-wo-005-mailbox-sweep",
+  "token_burn": 0,
+  "workorder_digest": "d1a3293bdb9e0cd37de062c36db4fff90c6e81968bfac5bc8eb44a751ea522f2",
+  "workorder_id": "wo-005-mailbox-sweep"
+}

@@ -33,38 +33,34 @@ def init_command(args):
     engine.pass_2()
     envelopes = engine.pass_3()
 
-    from wdd.gate import load_private_key, sign_payload
-    import base64
-    priv_key = load_private_key()
+    from wdd.gate import sign_workorder
 
     # Spit out generated JSON envelopes into the inbox
     for env in envelopes:
         import os
         from datetime import datetime, timezone, timedelta
         wo_id = env["workorder_id"]
-        
+
         env["nonce"] = os.urandom(8).hex()
-        env["expires_at"] = (datetime.now(timezone.utc) + timedelta(days=365)).isoformat().replace("+00:00", "Z")
-        
-        canonical = wo_id.encode("utf-8")
-        sig = sign_payload(priv_key, canonical)
-        env["issuer_signature"] = {
-            "key_id": "principal_agent_smith",
-            "alg": "Ed25519",
-            "signature_hex": base64.b64decode(sig).hex()
-        }
-        
+        env["expires_at"] = (
+            datetime.now(timezone.utc) + timedelta(days=365)
+        ).isoformat().replace("+00:00", "Z")
+
+        # Full canonical binding — altering any field must invalidate the signature.
+        env = sign_workorder(env, key_id="principal_agent_smith")
+
         out_path = f"mailbox/inbox/{wo_id}.json"
-        with open(out_path, "w", encoding="utf-8") as f:
+        with open(out_path, "w", encoding="utf-8", newline="\n") as f:
             json.dump(env, f, indent=2)
+            f.write("\n")
         print(f"Emitted: {out_path}")
 
 def compile_command(args):
     print("WDD Compile: Parsing vomit prompt into OB...")
 
 def replay_command(args):
-    from wdd.replay import replay_ledger
-    replay_ledger(benchmark=args.benchmark)
+    from wdd.replay import main_replay
+    main_replay(benchmark=args.benchmark)
 
 def sweep_command(args):
     print("WDD Sweep: Checking outbox for receipts...")

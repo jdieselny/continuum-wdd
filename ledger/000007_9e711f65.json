@@ -1,0 +1,9 @@
+{
+  "current_hash": "9e711f659f7df7da047733e79f01ed194a01e1ffe98916a62ccbb0fb7a0a1dcc",
+  "previous_hash": "87e67c3df4f38860e051fd36d57d86dd09692b0512f2e288aa04e300f9e7c6f1",
+  "receipt_digest": "c0b9ed4dad18923fff3445d12c291d5bde97e568ea0cd7539ba3ad23a7b2bbe5",
+  "receipt_id": "rcpt-wo-007-stage0-bootstrap",
+  "token_burn": 0,
+  "workorder_digest": "25ce8a8829f7c6e6aefe94c5f2a3ea0dfa92e32afa35fda8bea611c5a3ff43ae",
+  "workorder_id": "wo-007-stage0-bootstrap"
+}

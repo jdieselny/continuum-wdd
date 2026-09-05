@@ -1,0 +1,31 @@
+{
+  "keys": {
+    "agent_key": {
+      "alg": "Ed25519",
+      "enrolled_at": "2026-09-04T21:14:00Z",
+      "note": "Post-compromise rotation key (remediation SHA 66ade2c lineage)",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAu6IGD/FOJeIj2xeLc+lANX+4f1dZ9WPoGvUZHWOWHXw=\n-----END PUBLIC KEY-----\n",
+      "status": "ACTIVE"
+    },
+    "principal_agent_smith": {
+      "alg": "Ed25519",
+      "alias_of": "agent_key",
+      "enrolled_at": "2026-09-04T21:14:00Z",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAu6IGD/FOJeIj2xeLc+lANX+4f1dZ9WPoGvUZHWOWHXw=\n-----END PUBLIC KEY-----\n",
+      "status": "ACTIVE"
+    }
+  },
+  "revoked": [
+    {
+      "alg": "Ed25519",
+      "historical_commit": "6bf5b1049412362ede2a2d3863f55f6558709674",
+      "key_id": "agent_key_v0_compromised",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAFkZg20L4ueLoqydE0K2NAFRksB1z/uuzJbqy7+gmgqg=\n-----END PUBLIC KEY-----\n",
+      "reason": "Private key was committed in git history (6bf5b1049412362ede2a2d3863f55f6558709674). Permanently revoked; must never verify.",
+      "revoked_at": "2026-09-05T13:03:40.466292Z",
+      "status": "REVOKED"
+    }
+  ],
+  "updated_at": "2026-09-05T13:03:40.466412Z",
+  "version": 1
+}

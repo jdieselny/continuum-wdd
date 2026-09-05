@@ -1,0 +1,9 @@
+{
+  "current_hash": "9f6958e3b5bc53624c004bccc2801542d2b900396e5fc680b5a81d651d0372d7",
+  "previous_hash": "982cfc90cec6eb5dbe22dc62d364c4713ff6bd107dd7a2d7bbb2fb843e01a5ec",
+  "receipt_digest": "942f29146217c36e79c9334c28faf24fc26d54a0f1aae78d470ba61627da62fb",
+  "receipt_id": "rcpt-wo-019-replay-defense",
+  "token_burn": 0,
+  "workorder_digest": "573e5552b4568bf1d1c3429363ea8e249c56d35b9b9c5c462677366fdeb3b9b5",
+  "workorder_id": "wo-019-replay-defense"
+}

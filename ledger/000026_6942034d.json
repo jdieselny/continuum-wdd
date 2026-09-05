@@ -1,0 +1,9 @@
+{
+  "current_hash": "6942034df1c786e0d7e0a9da6b7423e260a20312271df57c5dd3414f61f874a1",
+  "previous_hash": "385007cb179d5a1d7161e203649acf98bcdd471856c90b8095ef9fc7d9090bb0",
+  "receipt_digest": "70cf5a327c69992c3800ccf8b6e087c2f98568ced458664f1db2fa424a08d22c",
+  "receipt_id": "rcpt-wo-026-telemetry-emitter",
+  "token_burn": 0,
+  "workorder_digest": "f7fd241f08778fbe26879b71d47b62d2bb51945229ea228c67c7a412f941eec8",
+  "workorder_id": "wo-026-telemetry-emitter"
+}

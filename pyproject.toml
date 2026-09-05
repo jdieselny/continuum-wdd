@@ -4,13 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "continuum-wdd"
-version = "0.1.0"
+version = "0.1.1"
 description = "Workorder Driven Development (WDD) Engine"
 authors = [
     {name = "J Diesel NY", email = "jkintzele@jdieselny.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.9"
+dependencies = [
+    "cryptography>=42.0.0",
+    "jsonschema>=4.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
 
 [project.scripts]
 wdd = "wdd.cli:main"
@@ -18,3 +27,7 @@ wdd = "wdd.cli:main"
 [tool.setuptools.packages.find]
 where = ["lib"]
 include = ["wdd*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["lib"]

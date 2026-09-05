@@ -1,3 +1,7 @@
+# Private material only. Public trust registry and public PEMs are tracked.
 *_private.pem
-trusted.json
+*.key
 !.gitkeep
+!agent_public.pem
+!trust_registry.v1.json
+!trusted.json

@@ -1,0 +1,9 @@
+{
+  "current_hash": "3f894899f3b4881ccbdcc42e86e70aff6eb0dbed1919a8f75ef617b4188d6dd8",
+  "previous_hash": "d421def65df8a869181711fa6657f7416eeeb7406ff934efcb1b85d97c82fb79",
+  "receipt_digest": "79de69583ecead2d0fc4aecdbf7f28c641de41094a72b86b7e3a43ef4a8b75bc",
+  "receipt_id": "rcpt-wo-004-telemetry-dashboard",
+  "token_burn": 0,
+  "workorder_digest": "5227b9f9b9a9fe108b9d46643361ac51d80fe57d4dcb46c82a73c9375d27b756",
+  "workorder_id": "wo-004-telemetry-dashboard"
+}

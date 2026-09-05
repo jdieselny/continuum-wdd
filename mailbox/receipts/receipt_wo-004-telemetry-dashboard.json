@@ -7,10 +7,11 @@
   "evaluator": "agent:agy.jdieselny.com",
   "policy_outcome": "ACCEPTED",
   "admitted_action": "gui.dashboard.telemetry",
-  "evidence_digest_sha256": "84ebd4dc5e2437811d67e9fb9e3fbdcdd0ae85f7868b02863c45ae0493fc6c38",
+  "evidence_digest_sha256": "d975103db6301d0f52c2f89c71d42012744ce7b610e42d4f7e005692f6b88864",
+  "token_burn": 0,
   "signature": {
     "key_id": "agent_key",
     "alg": "Ed25519",
-    "sig_b64": "F6O89IOzSte9/LD4Espe1iQu2uD1n+IJaWJBLIdQNfEnirGqjw5/9T1H93EHKLU3yz6kXHMUhilwKNqm0eysBQ=="
+    "sig_b64": "p5HqmKUK3225slA/1lVdTtajYHzwEqpBOLILaZmiXfHCcIF3Y/fsJ4fHIAiRX+byoJVaykov5h1fqYbU/L+jCA=="
   }
 }

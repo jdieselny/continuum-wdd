@@ -2,17 +2,17 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://wdd.jdieselny.com/schemas/ledger.schema.json",
   "title": "Ledger Entry",
-  "description": "Hash-chained append-only journal entry",
+  "description": "Hash-chained append-only journal entry bound to exact workorder and receipt digests",
   "type": "object",
   "properties": {
     "previous_hash": {
       "type": "string",
-      "description": "Cryptographic hash of the previous ledger entry",
+      "description": "current_hash of the previous ledger entry (64 zero hex for genesis)",
       "pattern": "^[a-fA-F0-9]{64}$"
     },
     "current_hash": {
       "type": "string",
-      "description": "Cryptographic hash of the current ledger entry",
+      "description": "SHA-256 of the canonical ledger entry excluding current_hash",
       "pattern": "^[a-fA-F0-9]{64}$"
     },
     "workorder_id": {
@@ -22,12 +22,29 @@
     "receipt_id": {
       "type": "string",
       "description": "ID of the corresponding receipt"
+    },
+    "workorder_digest": {
+      "type": "string",
+      "description": "SHA-256 of the canonical workorder signing payload",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "receipt_digest": {
+      "type": "string",
+      "description": "SHA-256 of the canonical receipt signing payload",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "token_burn": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Token burn attributed to this ledger entry"
     }
   },
   "required": [
     "previous_hash",
     "current_hash",
     "workorder_id",
-    "receipt_id"
+    "receipt_id",
+    "workorder_digest",
+    "receipt_digest"
   ]
 }
